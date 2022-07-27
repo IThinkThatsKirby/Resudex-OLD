@@ -3,6 +3,8 @@ import GoTrue from 'gotrue-js'
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 
+import 'beercss'
+import 'material-dynamic-colors'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
 
