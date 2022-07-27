@@ -13402,6 +13402,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gotrue-js@npm:^0.9.29":
+  version: 0.9.29
+  resolution: "gotrue-js@npm:0.9.29"
+  dependencies:
+    micro-api-client: ^3.2.1
+  checksum: 81aa01db716fbbe6e7ee61fb872553ccac8e0ffef10ff2391fd8afae2c07179312205ab063dd073c2d4a08afdb83e5e46f551f7b0f85d0ff1bae662b84d4338c
+  languageName: node
+  linkType: hard
+
 "graceful-fs@npm:^4.1.11, graceful-fs@npm:^4.1.15, graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.4, graceful-fs@npm:^4.2.6, graceful-fs@npm:^4.2.9":
   version: 4.2.10
   resolution: "graceful-fs@npm:4.2.10"
@@ -17112,6 +17121,13 @@ __metadata:
   version: 1.1.2
   resolution: "methods@npm:1.1.2"
   checksum: bdf7cc72ff0a33e3eede03708c08983c4d7a173f91348b4b1e4f47d4cdbf734433ad971e7d1e8c77247d9e5cd8adb81ea4c67b0a2db526b758b2233d7814b8b2
+  languageName: node
+  linkType: hard
+
+"micro-api-client@npm:^3.2.1":
+  version: 3.3.0
+  resolution: "micro-api-client@npm:3.3.0"
+  checksum: a9e3a37c6c8fde3d3125c1dd8ea015e52420fb116969bcc53ce969af0707e06ab32bd9815692bcdc05e44f7bd4584fffb7f073efbfecd4b4c7c48eb8c8f726ff
   languageName: node
   linkType: hard
 
@@ -23786,9 +23802,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:web"
   dependencies:
+    "@redwoodjs/auth": 2.1.0
     "@redwoodjs/forms": 2.1.0
     "@redwoodjs/router": 2.1.0
     "@redwoodjs/web": 2.1.0
+    gotrue-js: ^0.9.29
     prop-types: 15.8.1
     react: 17.0.2
     react-dom: 17.0.2
