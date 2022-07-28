@@ -13,11 +13,17 @@ import TopBarLayout from 'src/layouts/TopBarLayout/TopBarLayout'
 const Routes = () => {
   return (
     <Router>
-      <Set wrap={TopBarLayout}>
+<Set wrap={TopBarLayout}>
+      <Route path="/homepage" page={HomepagePage} name="homepage" />
+      <Route path="/signin" page={SigninPage} name="signin" />
+      <Route path="/signup" page={SignupPage} name="signup" />
+
+      
         <Route path="/panning" page={PanningPage} name="panning" />
         <Route path="/" page={NewSessionPage} name="newSession" />
         <Route path="/sifter" page={SifterPage} name="sifter" />
       </Set>
+
       <Route notfound page={NotFoundPage} />
     </Router>
   )
