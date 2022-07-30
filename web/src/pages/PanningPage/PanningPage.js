@@ -1,6 +1,8 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
+import BCard from 'src/components/BCard/BCard'
+
 const PanningPage = () => {
   return (
     <>
@@ -10,6 +12,7 @@ const PanningPage = () => {
       <h2>
         you will sift threw resumes matching basic qualifying descriptions.
       </h2>
+      <BCard />
     </>
   )
 }
