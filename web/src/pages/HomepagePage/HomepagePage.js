@@ -1,25 +1,12 @@
-import { Link, routes } from '@redwoodjs/router'
-import { MetaTags } from '@redwoodjs/web'
+import GlobalLayout from 'src/layouts/GlobalLayout/GlobalLayout'
 
-const HomepagePage = () => {
+const HomePage = () => {
   return (
-    <>
-      <MetaTags title="Homepage" description="Homepage page" />
-
-      <h1>HomepagePage</h1>
-
-      <p>
-        Find me in
-        <code>./web/src/pages/HomepagePage/HomepagePage.js</code>
-      </p>
-
-      <p>
-        My default route is named
-        <code>homepage</code>, link to me with `
-        <Link to={routes.homepage()}>Homepage</Link>`
-      </p>
-    </>
+    <GlobalLayout>
+      <h1>Home</h1>
+      <p>My Gotrue Redwood Auth</p>
+    </GlobalLayout>
   )
 }
 
-export default HomepagePage
+export default HomePage
