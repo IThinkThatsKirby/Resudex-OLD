@@ -7,7 +7,8 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
-import { Router, Route, Set } from '@redwoodjs/router'
+import { Router, Route, Private } from '@redwoodjs/router'
+
 
 import JobPostsLayout from 'src/layouts/JobPostsLayout'
 
@@ -17,6 +18,7 @@ import TopBarLayout from 'src/layouts/TopBarLayout/TopBarLayout'
 const Routes = () => {
   return (
     <Router>
+
       <Set wrap={JobPostsLayout}>
         <Route path="/job-posts/new" page={JobPostNewJobPostPage} name="newJobPost" />
         <Route path="/job-posts/{id:Int}/edit" page={JobPostEditJobPostPage} name="editJobPost" />
@@ -29,7 +31,11 @@ const Routes = () => {
         <Route path="/users/{id:Int}" page={UserUserPage} name="user" />
         <Route path="/users" page={UserUsersPage} name="users" />
       </Set>
+
       <Set wrap={TopBarLayout}>
+      <Private unauthenticated="login" roles={['employer', 'employee']}>
+        <Route path="/form" page={FormPage} name="form" />
+      </Private>
         <Route path="/form" page={FormPage} name="form" />
         <Route path="/homepage" page={HomepagePage} name="homepage" />
         <Route path="/signin" page={SigninPage} name="signin" />
@@ -39,7 +45,6 @@ const Routes = () => {
         <Route path="/" page={NewSessionPage} name="newSession" />
         <Route path="/sifter" page={SifterPage} name="sifter" />
       </Set>
-
       <Route notfound page={NotFoundPage} />
     </Router>
   )

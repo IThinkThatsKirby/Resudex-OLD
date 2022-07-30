@@ -1,5 +1,6 @@
 export const schema = gql`
   type User {
+
     name: String
     email: String!
     jobTitle: String
@@ -7,6 +8,7 @@ export const schema = gql`
     yearsInIndustry: Int!
     memberSince: DateTime!
     userId: Int!
+
   }
 
   type Query {
@@ -15,6 +17,7 @@ export const schema = gql`
   }
 
   input CreateUserInput {
+
     name: String
     email: String!
     jobTitle: String
@@ -32,6 +35,7 @@ export const schema = gql`
     yearsInIndustry: Int
     memberSince: DateTime
     userId: Int
+
   }
 
   type Mutation {

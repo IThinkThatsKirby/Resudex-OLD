@@ -7,7 +7,6 @@ export const standard = defineScenario({
         yearsInIndustry: 4188038,
       },
     },
-
     two: {
       data: {
         email: 'String2032898',
@@ -15,5 +14,6 @@ export const standard = defineScenario({
         yearsInIndustry: 9184612,
       },
     },
+
   },
 })

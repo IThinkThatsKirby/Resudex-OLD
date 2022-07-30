@@ -9,6 +9,7 @@ generator client {
 }
 
 model user {
+
   name            String?
   email           String    @unique
   jobTitle        String?
@@ -20,9 +21,9 @@ model user {
 
 model jobPost {
   jobId         Int @id @default(autoincrement())
+
   jobPosterName String?
   title         String
   body          String
   createdAt     DateTime @default(now())
 }
-
