@@ -1,5 +1,6 @@
-import { AuthProvider } from '@redwoodjs/auth'
 import GoTrue from 'gotrue-js'
+
+import { AuthProvider } from '@redwoodjs/auth'
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 
@@ -11,7 +12,7 @@ import Routes from 'src/Routes'
 import './index.css'
 
 const goTrueClient = new GoTrue({
-  APIUrl: 'https://MYAPP.netlify.app/.netlify/identity', // needs to be changed- gonna let Kirby make the account for it
+  APIUrl: 'https://golden-pony-e7e7b0.netlify.app/.netlify/identity',
   setCookie: true,
 })
 
