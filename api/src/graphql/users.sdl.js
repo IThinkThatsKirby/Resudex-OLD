@@ -1,9 +1,14 @@
 export const schema = gql`
   type User {
-    userId: Int!
-    email: String!
+
     name: String
+    email: String!
+    jobTitle: String
+    jobExp: Int!
+    yearsInIndustry: Int!
     memberSince: DateTime!
+    userId: Int!
+
   }
 
   type Query {
@@ -12,17 +17,25 @@ export const schema = gql`
   }
 
   input CreateUserInput {
-    userId: Int!
-    email: String!
+
     name: String
+    email: String!
+    jobTitle: String
+    jobExp: Int!
+    yearsInIndustry: Int!
     memberSince: DateTime!
+    userId: Int!
   }
 
   input UpdateUserInput {
-    userId: Int
-    email: String
     name: String
+    email: String
+    jobTitle: String
+    jobExp: Int
+    yearsInIndustry: Int
     memberSince: DateTime
+    userId: Int
+
   }
 
   type Mutation {

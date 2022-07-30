@@ -9,14 +9,19 @@ generator client {
 }
 
 model user {
-  userId      Int      @id @default(autoincrement())
-  email       String   @unique
-  name        String?
-  memberSince DateTime @default(now())
+
+  name            String?
+  email           String    @unique
+  jobTitle        String?
+  jobExp          Int
+  yearsInIndustry Int
+  memberSince     DateTime  @default(now())
+  userId          Int       @id @default(autoincrement())
 }
 
 model jobPost {
-  jobId         Int      @id @default(autoincrement())
+  jobId         Int @id @default(autoincrement())
+
   jobPosterName String?
   title         String
   body          String
