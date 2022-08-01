@@ -6,7 +6,7 @@ const SignoutBtn = () => {
     logout().then(() => navigate(routes.home))
   }
   return (
-    <button onClick={() => onClick()}>Sign Out</button>
+    <button class="extend circle large" onClick={() => onClick()}>Sign Out</button>
   )
 }
 

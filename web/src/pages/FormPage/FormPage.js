@@ -9,7 +9,8 @@ const FormPage = () => {
   return (
     <>
       <MetaTags title="Form" description="Form page" />
-
+      <main class="responsive">
+      <body class="dark">
       <h1>Form | Resume</h1>
       <Form onSubmit={onSubmit}>
       <TextField name="name" placeholder="name"/>
@@ -20,6 +21,8 @@ const FormPage = () => {
       <TextField name="education" placeholder="Education" />
       <Submit>Submit</Submit>
       </Form>
+      </body>
+      </main>
     </>
   )
 }
