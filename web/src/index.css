@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+/* Manual CSS cuz why not ;3 */
+
+/* bCard */
+
+article {
+  font-family: 'Quicksand', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 30px;
+}
+
+.userJobInfoContainer {
+  box-shadow: 7px 7px 7x black;
+  width: 800px;
+  height: 675px;
+  margin: 50px;
+  outline: solid 1px black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.userJobInfoContainer button {
+  background: #0c0;
+  border: none;
+  color: #fff;
+  border-radius: 10px 10px;
+  width: 120px;
+  height: 60px;
+  line-height: 60px;
+  margin: 0 .5em;
+  align-self: center;
+  padding-bottom: 10px;
+}
+.userJobInfoContainer button:focus {
+  outline: 0;
+  background: #0f0;
+}
+
+.userJobInfoContainer .nahButton {
+  background: #c00;
+}
+.userJobInfoContainer .nahButton:focus {
+  outline: 0;
+  background: #c00;
+}
+
+
+.cardName {
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.cardExperience {
+  justify-content: center;
+  align-self: center;
+
+}
+.experienceList {
+  padding-right: 10px;
+}
+
+.cardProjects {
+  justify-content: center;
+  align-self: center;
+}
