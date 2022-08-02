@@ -20,6 +20,7 @@ const Routes = () => {
         <Route path="/users/{id:Int}/edit" page={UserEditUserPage} name="editUser" />
         <Route path="/users/{id:Int}" page={UserUserPage} name="user" />
         <Route path="/users" page={UserUsersPage} name="users" />
+        <Route path="/user/resudex" page={ResudexPage} name="resudex" />
       </Set>
 
       <Set wrap={TopBarLayout}>
