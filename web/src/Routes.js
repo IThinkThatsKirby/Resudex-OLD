@@ -7,15 +7,14 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
-import { Router, Route, Private } from '@redwoodjs/router'
-
-import UsersLayout from 'src/layouts/UsersLayout'
+import { Router, Route, Private, Set } from '@redwoodjs/router'
 
 import TopBarLayout from 'src/layouts/TopBarLayout/TopBarLayout'
+import UsersLayout from 'src/layouts/UsersLayout'
+
 const Routes = () => {
   return (
     <Router>
-
       <Set wrap={UsersLayout}>
         <Route path="/users/new" page={UserNewUserPage} name="newUser" />
         <Route path="/users/{id:Int}/edit" page={UserEditUserPage} name="editUser" />
@@ -24,9 +23,9 @@ const Routes = () => {
       </Set>
 
       <Set wrap={TopBarLayout}>
-      <Private unauthenticated="login" roles={['employer', 'employee']}>
-        <Route path="/form" page={FormPage} name="form" />
-      </Private>
+        <Private unauthenticated="login" roles={['employer', 'employee']}>
+          <Route path="/form" page={FormPage} name="form" />
+        </Private>
         <Route path="/form" page={FormPage} name="form" />
         <Route path="/homepage" page={HomepagePage} name="homepage" />
         <Route path="/signin" page={SigninPage} name="signin" />
