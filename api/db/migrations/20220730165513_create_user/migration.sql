@@ -6,14 +6,5 @@ CREATE TABLE "user" (
     "memberSince" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
--- CreateTable
-CREATE TABLE "jobPost" (
-    "jobId" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "jobPosterName" TEXT,
-    "title" TEXT NOT NULL,
-    "body" TEXT NOT NULL,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-
 -- CreateIndex
 CREATE UNIQUE INDEX "user_email_key" ON "user"("email");

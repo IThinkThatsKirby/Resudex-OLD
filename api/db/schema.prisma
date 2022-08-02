@@ -8,22 +8,32 @@ generator client {
   binaryTargets = "native"
 }
 
-model user {
-
-  name            String?
-  email           String    @unique
-  jobTitle        String?
-  jobExp          Int
-  yearsInIndustry Int
-  memberSince     DateTime  @default(now())
-  userId          Int       @id @default(autoincrement())
+model User {
+  id                     Int              @id @default(autoincrement())
+  name                   String
+  businessCard           BusinessCard[]
+  email                  String           @unique
 }
 
-model jobPost {
-  jobId         Int @id @default(autoincrement())
+model BusinessCard {
+  businessCardId         Int              @id @default(autoincrement())
+  jobSeeker              User             @relation(fields: [jobSeekerId], references: [id])
+  jobSeekerId            Int // relation scalar field  (used in the `@relation` attribute above)
+  job                    Job[]
+}
 
-  jobPosterName String?
-  title         String
-  body          String
-  createdAt     DateTime @default(now())
+model Job {
+  jobTypeId              Int              @id
+  jobType                String           @default("Software Engineer")
+  skillType              SkillType[]
+  BusinessCard           BusinessCard?    @relation(fields: [businessCardId], references: [businessCardId])
+  businessCardId         Int?
+}
+
+model SkillType {
+  skillTypeId            Int              @id
+  skill                  String
+  skillExperienceInYears Int
+  Job                    Job?             @relation(fields: [JobTypeId], references: [jobTypeId])
+  JobTypeId              Int?
 }

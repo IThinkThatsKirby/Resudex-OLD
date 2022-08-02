@@ -9,9 +9,6 @@
 
 import { Router, Route, Private } from '@redwoodjs/router'
 
-
-import JobPostsLayout from 'src/layouts/JobPostsLayout'
-
 import UsersLayout from 'src/layouts/UsersLayout'
 
 import TopBarLayout from 'src/layouts/TopBarLayout/TopBarLayout'
@@ -19,12 +16,6 @@ const Routes = () => {
   return (
     <Router>
 
-      <Set wrap={JobPostsLayout}>
-        <Route path="/job-posts/new" page={JobPostNewJobPostPage} name="newJobPost" />
-        <Route path="/job-posts/{id:Int}/edit" page={JobPostEditJobPostPage} name="editJobPost" />
-        <Route path="/job-posts/{id:Int}" page={JobPostJobPostPage} name="jobPost" />
-        <Route path="/job-posts" page={JobPostJobPostsPage} name="jobPosts" />
-      </Set>
       <Set wrap={UsersLayout}>
         <Route path="/users/new" page={UserNewUserPage} name="newUser" />
         <Route path="/users/{id:Int}/edit" page={UserEditUserPage} name="editUser" />
