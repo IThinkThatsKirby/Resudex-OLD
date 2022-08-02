@@ -1,3 +1,5 @@
+import React, { useState } from 'react'
+
 import { useAuth } from '@redwoodjs/auth'
 import { Form, TextField, PasswordField, Submit } from '@redwoodjs/forms'
 import { Link, routes, navigate } from '@redwoodjs/router'
@@ -5,7 +7,7 @@ import { MetaTags } from '@redwoodjs/web'
 
 const SignupPage = () => {
   const { client } = useAuth()
-  const [error, setError] = react.useState(null)
+  const [error, setError] = useState(null)
   const onSubmit = (data) => {
     setError(null)
     client
