@@ -1,5 +1,5 @@
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASEURL")
 }
 
@@ -9,31 +9,31 @@ generator client {
 }
 
 model User {
-  id                     Int              @id @default(autoincrement())
-  name                   String
-  businessCard           BusinessCard[]
-  email                  String           @unique
+  id           Int            @id @default(autoincrement())
+  name         String
+  businessCard BusinessCard[]
+  email        String         @unique
 }
 
 model BusinessCard {
-  businessCardId         Int              @id @default(autoincrement())
-  jobSeeker              User             @relation(fields: [jobSeekerId], references: [id])
-  jobSeekerId            Int // relation scalar field  (used in the `@relation` attribute above)
-  job                    Job[]
+  businessCardId Int   @id @default(autoincrement())
+  jobSeeker      User  @relation(fields: [jobSeekerId], references: [id])
+  jobSeekerId    Int // relation scalar field  (used in the `@relation` attribute above)
+  job            Job[]
 }
 
 model Job {
-  jobTypeId              Int              @id
-  jobType                String           @default("Software Engineer")
-  skillType              SkillType[]
-  BusinessCard           BusinessCard?    @relation(fields: [businessCardId], references: [businessCardId])
-  businessCardId         Int?
+  jobTypeId      Int           @id
+  jobType        String        @default("Software Engineer")
+  skillType      SkillType[]
+  BusinessCard   BusinessCard? @relation(fields: [businessCardId], references: [businessCardId])
+  businessCardId Int?
 }
 
 model SkillType {
-  skillTypeId            Int              @id
+  skillTypeId            Int    @id
   skill                  String
   skillExperienceInYears Int
-  Job                    Job?             @relation(fields: [JobTypeId], references: [jobTypeId])
+  Job                    Job?   @relation(fields: [JobTypeId], references: [jobTypeId])
   JobTypeId              Int?
 }

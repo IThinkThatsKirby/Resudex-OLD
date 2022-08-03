@@ -27,7 +27,6 @@ const Routes = () => {
         <Private unauthenticated="login" roles={['employer', 'employee']}>
           <Route path="/form" page={FormPage} name="form" />
         </Private>
-        <Route path="/form" page={FormPage} name="form" />
         <Route path="/homepage" page={HomepagePage} name="homepage" />
         <Route path="/signin" page={SigninPage} name="signin" />
         <Route path="/signup" page={SignupPage} name="signup" />
