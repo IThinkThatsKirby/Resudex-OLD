@@ -2,6 +2,7 @@ import { Form, TextField, Submit, NumberField } from '@redwoodjs/forms'
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import 'src/index.css'
+
 const FormPage = () => {
   const onSubmit = (data) => {
     // push info to DB here.
