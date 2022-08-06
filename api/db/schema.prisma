@@ -1,39 +1,56 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider      = "prisma-client-js"
-  binaryTargets = "native"
+model public_bcard {
+  bcard_id                                                                     Int                     @id(map: "bcard_pk") @default(dbgenerated("nextval('\"public.bcard_bcard_id_seq\"'::regclass)"))
+  user_id                                                                      Int                     @default(dbgenerated("nextval('\"public.bcard_user_id_seq\"'::regclass)"))
+  profession_id                                                                Int                     @default(dbgenerated("nextval('\"public.bcard_profession_id_seq\"'::regclass)"))
+  specialization_id1                                                           Int                     @default(dbgenerated("nextval('\"public.bcard_specialization_id1_seq\"'::regclass)"))
+  specialization_id2                                                           Int                     @default(dbgenerated("nextval('\"public.bcard_specialization_id2_seq\"'::regclass)"))
+  specialization_id3                                                           Int                     @default(dbgenerated("nextval('\"public.bcard_specialization_id3_seq\"'::regclass)"))
+  public_profession                                                            public_profession       @relation(fields: [profession_id], references: [profession_id], onDelete: NoAction, onUpdate: NoAction, map: "bcard_fk1")
+  public_specialization_public_bcard_specialization_id1Topublic_specialization public_specialization   @relation("public_bcard_specialization_id1Topublic_specialization", fields: [specialization_id1], references: [specialization_id], onDelete: NoAction, onUpdate: NoAction, map: "bcard_fk2")
+  public_specialization_public_bcard_specialization_id2Topublic_specialization public_specialization   @relation("public_bcard_specialization_id2Topublic_specialization", fields: [specialization_id2], references: [specialization_id], onDelete: NoAction, onUpdate: NoAction, map: "bcard_fk3")
+  public_specialization_public_bcard_specialization_id3Topublic_specialization public_specialization   @relation("public_bcard_specialization_id3Topublic_specialization", fields: [specialization_id3], references: [specialization_id], onDelete: NoAction, onUpdate: NoAction, map: "bcard_fk4")
+  public_user_information                                                      public_user_information @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "bcard_fk0")
+
+  @@map("public.bcard")
 }
 
-model User {
-  id           Int            @id @default(autoincrement())
-  name         String
-  businessCard BusinessCard[]
-  email        String         @unique
+model public_profession {
+  type                  String?                 @db.VarChar(255)
+  profession_id         Int                     @id(map: "profession_pk") @default(dbgenerated("nextval('\"public.profession_profession_id_seq\"'::regclass)"))
+  public_bcard          public_bcard[]
+  public_specialization public_specialization[]
+
+  @@map("public.profession")
 }
 
-model BusinessCard {
-  businessCardId Int   @id @default(autoincrement())
-  jobSeeker      User  @relation(fields: [jobSeekerId], references: [id])
-  jobSeekerId    Int // relation scalar field  (used in the `@relation` attribute above)
-  job            Job[]
+model public_specialization {
+  type                                                                String            @db.VarChar(255)
+  specialization_id                                                   Int               @id(map: "specialization_pk") @default(dbgenerated("nextval('\"public.specialization_specialization_id_seq\"'::regclass)"))
+  profession_id                                                       Int               @default(dbgenerated("nextval('\"public.specialization_profession_id_seq\"'::regclass)"))
+  public_profession                                                   public_profession @relation(fields: [profession_id], references: [profession_id], onDelete: NoAction, onUpdate: NoAction, map: "specialization_fk0")
+  public_bcard_public_bcard_specialization_id1Topublic_specialization public_bcard[]    @relation("public_bcard_specialization_id1Topublic_specialization")
+  public_bcard_public_bcard_specialization_id2Topublic_specialization public_bcard[]    @relation("public_bcard_specialization_id2Topublic_specialization")
+  public_bcard_public_bcard_specialization_id3Topublic_specialization public_bcard[]    @relation("public_bcard_specialization_id3Topublic_specialization")
+
+  @@map("public.specialization")
 }
 
-model Job {
-  jobTypeId      Int           @id
-  jobType        String        @default("Software Engineer")
-  skillType      SkillType[]
-  BusinessCard   BusinessCard? @relation(fields: [businessCardId], references: [businessCardId])
-  businessCardId Int?
-}
+model public_user_information {
+  user_id      Int            @id(map: "user_information_pk") @default(dbgenerated("nextval('\"public.user_information_user_id_seq\"'::regclass)"))
+  name         String         @default("name") @db.VarChar(22)
+  phone_number String         @default(dbgenerated("'66666666666'::bigint")) @db.VarChar(22)
+  user_type_id Int
+  public_bcard public_bcard[]
 
-model SkillType {
-  skillTypeId            Int    @id
-  skill                  String
-  skillExperienceInYears Int
-  Job                    Job?   @relation(fields: [JobTypeId], references: [jobTypeId])
-  JobTypeId              Int?
+  @@map("public.user_information")
 }
