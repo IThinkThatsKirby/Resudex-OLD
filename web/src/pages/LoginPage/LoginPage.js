@@ -1,21 +1,20 @@
+import { Link, navigate, routes } from '@redwoodjs/router'
 import { useRef } from 'react'
-import { useEffect } from 'react'
-
-import { useAuth } from '@redwoodjs/auth'
 import {
   Form,
   Label,
   TextField,
   PasswordField,
-  FieldError,
   Submit,
+  FieldError,
 } from '@redwoodjs/forms'
-import { Link, navigate, routes } from '@redwoodjs/router'
+import { useAuth } from '@redwoodjs/auth'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
+import { useEffect } from 'react'
 
-const SignupPage = () => {
-  const { isAuthenticated, signUp } = useAuth()
+const LoginPage = () => {
+  const { isAuthenticated, logIn } = useAuth()
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -23,28 +22,26 @@ const SignupPage = () => {
     }
   }, [isAuthenticated])
 
-  // focus on email box on page load
   const usernameRef = useRef()
   useEffect(() => {
     usernameRef.current.focus()
   }, [])
 
   const onSubmit = async (data) => {
-    const response = await signUp({ ...data })
+    const response = await logIn({ ...data })
 
     if (response.message) {
       toast(response.message)
     } else if (response.error) {
       toast.error(response.error)
     } else {
-      // user is signed in automatically
-      toast.success('Welcome!')
+      toast.success('Welcome back!')
     }
   }
 
   return (
     <>
-      <MetaTags title="Signup" />
+      <MetaTags title="Login" />
 
       <main className="rw-main">
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
@@ -52,7 +49,7 @@ const SignupPage = () => {
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
             <header className="rw-segment-header">
-              <h2 className="rw-heading rw-heading-secondary">Signup</h2>
+              <h2 className="rw-heading rw-heading-secondary">Login</h2>
             </header>
 
             <div className="rw-segment-main">
@@ -102,12 +99,19 @@ const SignupPage = () => {
                     }}
                   />
 
+                  <div className="rw-forgot-link">
+                    <Link
+                      to={routes.forgotPassword()}
+                      className="rw-forgot-link"
+                    >
+                      Forgot Password?
+                    </Link>
+                  </div>
+
                   <FieldError name="password" className="rw-field-error" />
 
                   <div className="rw-button-group">
-                    <Submit className="rw-button rw-button-blue">
-                      Sign Up
-                    </Submit>
+                    <Submit className="rw-button rw-button-blue">Login</Submit>
                   </div>
                 </Form>
               </div>
@@ -115,9 +119,9 @@ const SignupPage = () => {
           </div>
 
           <div className="rw-login-link">
-            <span>Already have an account?</span>{' '}
-            <Link to={routes.login()} className="rw-link">
-              Log in!
+            <span>Don&apos;t have an account?</span>{' '}
+            <Link to={routes.signup()} className="rw-link">
+              Sign up!
             </Link>
           </div>
         </div>
@@ -126,4 +130,4 @@ const SignupPage = () => {
   )
 }
 
-export default SignupPage
+export default LoginPage
