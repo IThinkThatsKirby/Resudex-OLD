@@ -3,8 +3,11 @@ import GlobalLayout from 'src/layouts/GlobalLayout/GlobalLayout'
 const HomePage = () => {
   return (
     <GlobalLayout>
-      <h1>Home</h1>
-      <p>My Gotrue Redwood Auth</p>
+      <div className="heroContainer">
+        <button class="extend circle large" className="siftRoute" onclick="navigate(routes.Panning)">
+          Begin Searching!
+        </button>
+      </div>
     </GlobalLayout>
   )
 }

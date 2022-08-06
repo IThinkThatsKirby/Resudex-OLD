@@ -23,7 +23,7 @@ const BCard = (data) => {
             <h5>🔗 | Projects Showcase</h5>
             <ul className="projectsList">
               <li>Project 1</li>
-              <li> Project 2</li>
+              <li>Project 2</li>
               <li>Project 3</li>
             </ul>
           </div>

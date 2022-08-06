@@ -5,7 +5,6 @@ html {
   font-family: 'Quicksand', sans-serif;
 }
 
-
 /* NavBar */
 .navBarContainer Link {
   text-decoration: none;
@@ -84,7 +83,6 @@ h5 {
   outline: 0;
   background: #c00;
 }
-
 
 .cardName {
   padding-left: 10px;
