@@ -9,10 +9,11 @@ const FormPage = () => {
   return (
     <>
       <MetaTags title="Form" description="Form page" />
-      <div className="formContainer">
-      <h1 className="formTitle">Form | Resume</h1>
+      <main class="responsive">
+      <body class="dark">
+      <h1>Form | Resume</h1>
 
-      <Form className="userInputForm">
+      <Form>
         <TextField name="name" placeholder="name" />
         <TextField name="email" placeholder="email" />
         <TextField name="jobTitle" placeholder="Job Title" />
@@ -21,7 +22,8 @@ const FormPage = () => {
         <TextField name="education" placeholder="Education" />
         <Submit className="SubmitBtn">Submit</Submit>
       </Form>
-</div>
+      </body>
+      </main>
     </>
   )
 }

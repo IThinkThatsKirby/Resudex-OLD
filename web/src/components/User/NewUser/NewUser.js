@@ -7,7 +7,7 @@ import UserForm from 'src/components/User/UserForm'
 const CREATE_USER_MUTATION = gql`
   mutation CreateUserMutation($input: CreateUserInput!) {
     createUser(input: $input) {
-      id
+      userId
     }
   }
 `
