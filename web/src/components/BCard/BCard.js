@@ -1,7 +1,7 @@
-const BCard = () => {
+import 'web/src/index.css'
+const BCard = (data) => {
   return (
     <article className="round">
-      <div className="row no-wrap">
         <div className="col min">
           <img
             className="circle large"
@@ -9,15 +9,27 @@ const BCard = () => {
             src="/beer-and-woman.jpg"
           ></img>
         </div>
-        <div className="col">
-          <h5 className="no-margin">Title</h5>
-          <div>Complementary text</div>
+        <div className="userJobInfoContainer">
+        <h2 className="cardName">NAME</h2>
+          <div className="cardExperience">
+            <h5>💼 | Industry Experience </h5>
+            <ul  className="experienceList">
+              <li>EXP 1</li>
+              <li>EXP 2</li>
+              <li>EXP 3</li>
+            </ul>
+          </div>
+          <div className="cardProjects">
+            <h5>🔗 | Projects Showcase</h5>
+            <ul className="projectsList">
+              <li>Project 1</li>
+              <li>Project 2</li>
+              <li>Project 3</li>
+            </ul>
+          </div>
+        <button className="nahButton">NAH FAM</button>
+        <button className="yasButton">YAS QUEEN</button>
         </div>
-      </div>
-      <nav>
-        <button className="none">NAH FAM</button>
-        <button className="none">YAS QUEEN</button>
-      </nav>
     </article>
   )
 }

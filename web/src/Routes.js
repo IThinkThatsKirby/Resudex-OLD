@@ -20,13 +20,13 @@ const Routes = () => {
         <Route path="/users/{id:Int}/edit" page={UserEditUserPage} name="editUser" />
         <Route path="/users/{id:Int}" page={UserUserPage} name="user" />
         <Route path="/users" page={UserUsersPage} name="users" />
+        <Route path="/user/resudex" page={ResudexPage} name="resudex" />
       </Set>
 
       <Set wrap={TopBarLayout}>
         <Private unauthenticated="login" roles={['employer', 'employee']}>
           <Route path="/form" page={FormPage} name="form" />
         </Private>
-        <Route path="/form" page={FormPage} name="form" />
         <Route path="/homepage" page={HomepagePage} name="homepage" />
         <Route path="/signin" page={SigninPage} name="signin" />
         <Route path="/signup" page={SignupPage} name="signup" />
