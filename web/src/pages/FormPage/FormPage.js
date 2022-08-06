@@ -1,7 +1,7 @@
 import { Form, TextField, Submit, NumberField } from '@redwoodjs/forms'
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
-
+import 'src/index.css'
 const FormPage = () => {
   const onSubmit = (data) => {
     // push info to DB here.
@@ -20,8 +20,7 @@ const FormPage = () => {
         <TextField name="jobExp" placeholder="Work Experience" />
         <TextField name="yrsInIndustry" placeholder="Total years worked in tech"/>
         <TextField name="education" placeholder="Education" />
-        <Submit>Submit</Submit>
-
+        <Submit className="SubmitBtn">Submit</Submit>
       </Form>
       </body>
       </main>
