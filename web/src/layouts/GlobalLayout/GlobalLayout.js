@@ -4,7 +4,6 @@ const GlobalLayout = ({ children }) => {
   return (
     <>
       <header>
-        <Navigation />
       </header>
       <main>{children}</main>
     </>

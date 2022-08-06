@@ -146,3 +146,11 @@ h5 {
 .signInContainer h1 {
   align-self: center;
 }
+
+.signInContainer Form {
+  height: 50%;
+  width: 20%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
