@@ -1,7 +1,11 @@
 // import 'material-dynamic-colors'
 // import 'beercss'
+import { Link, routes } from '@redwoodjs/router'
+import { useAuth } from '@redwoodjs/auth'
+import SignoutBtn from 'src/components/SignoutBtn/SignoutBtn'
 
 const TopBarLayout = ({ children }) => {
+  const { isAuthenticated } = useAuth()
   return (
     <>
       <header className="padding primary">
@@ -11,29 +15,21 @@ const TopBarLayout = ({ children }) => {
             <div className="dropdown right no-wrap">
               <a href="/panning">NEW Resumes</a>
               <a href="/sifter">Your Resudex</a>
-              <a>Item 3</a>
+              <a>Coming Soon!</a>
             </div>
           </button>
           <div className="col">
-            <h5 className="no-margin">Title large</h5>
+            <h5 className="no-margin">🗂️ | Resudex</h5>
           </div>
-          <div className="col min">
-            <a>
-              <i>attach_file</i>
-            </a>
-          </div>
-          <div className="col min">
-            <a>
-              <i>today</i>
-            </a>
-          </div>
-          <div className="col min">
-            <a>
-              <i>more_vert</i>
-            </a>
+          <div className="navBarContainer">
+          <ul className="navBarList">
+          <li><button className="signUp"><Link to={routes.signup()}>Sign Up</Link></button></li>
+          <li><button className="signIn"><Link to={routes.signin()}>Sign In</Link></button></li>
+          </ul>
           </div>
         </div>
       </header>
+
       <main>{children}</main>
     </>
   )
