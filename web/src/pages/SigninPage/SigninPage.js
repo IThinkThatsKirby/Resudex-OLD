@@ -16,7 +16,7 @@ const SigninPage = () => {
   return (
     <>
       <MetaTags title="Signin" description="Signin page" />
-
+    <div className="signInContainer">
       <h1>Sign In</h1>
       <Form onSubmit={onSubmit}>
         {error && <p>{error}</p>}
@@ -24,6 +24,7 @@ const SigninPage = () => {
         <PasswordField name="password" placeholder="password" />
         <Submit>Sign In</Submit>
       </Form>
+      </div>
     </>
   )
 }
