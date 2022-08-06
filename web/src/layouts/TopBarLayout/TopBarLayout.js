@@ -1,7 +1,8 @@
 // import 'material-dynamic-colors'
 // import 'beercss'
-import { Link, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
+import { Link, routes } from '@redwoodjs/router'
+
 import SignoutBtn from 'src/components/SignoutBtn/SignoutBtn'
 
 const TopBarLayout = ({ children }) => {
@@ -22,10 +23,18 @@ const TopBarLayout = ({ children }) => {
             <h5 className="no-margin">🗂️ | Resudex</h5>
           </div>
           <div className="navBarContainer">
-          <ul className="navBarList">
-          <li><button className="signUp"><Link to={routes.signup()}>Sign Up</Link></button></li>
-          <li><button className="signIn"><Link to={routes.signin()}>Sign In</Link></button></li>
-          </ul>
+            <ul className="navBarList">
+              <li>
+                <Link to={routes.signup()}>
+                  <button className="signUp">Sign Up </button>
+                </Link>
+              </li>
+              <li>
+                <Link to={routes.signin()}>
+                  <button className="signIn">Sign In </button>
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </header>
