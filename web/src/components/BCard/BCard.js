@@ -10,21 +10,21 @@ const BCard = (data) => {
           ></img>
         </div>
         <div className="userJobInfoContainer">
-        <h2 className="cardName">NAME</h2>
+        <h2 className="cardName">Ed Shizenboker</h2>
           <div className="cardExperience">
             <h5>💼 | Industry Experience </h5>
             <ul  className="experienceList">
-              <li>EXP 1</li>
-              <li>EXP 2</li>
-              <li>EXP 3</li>
+              <li>Worked at Facebook / META</li>
+              <li>Worked at Twitter</li>
+              <li>Worked at Arby's</li>
             </ul>
           </div>
           <div className="cardProjects">
             <h5>🔗 | Projects Showcase</h5>
             <ul className="projectsList">
-              <li>Project 1</li>
-              <li>Project 2</li>
-              <li>Project 3</li>
+              <li>https://github.com/wangeditor-team/wangEditor</li>
+              <li>https://github.com/wangeditor-team/wangEditor-for-react</li>
+              <li>https://github.com/wangeditor-team/wangEditor-for-vue</li>
             </ul>
           </div>
         <button className="nahButton">NAH FAM</button>
