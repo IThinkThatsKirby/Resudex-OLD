@@ -27,16 +27,17 @@ const Routes = () => {
       </Set>
 
       <Set wrap={TopBarLayout}>
-        <Private unauthenticated="login" roles={['employer', 'employee']}>
+        <Private unauthenticated="signin" roles={['employer', 'employee']}>
           <Route path="/form" page={FormPage} name="form" />
         </Private>
         <Route path="/homepage" page={HomepagePage} name="homepage" />
         <Route path="/signin" page={SigninPage} name="signin" />
         <Route path="/signup" page={SignupPage} name="signup" />
-
-        <Route path="/panning" page={PanningPage} name="panning" />
+<Private unauthenticated='signin'>
+          <Route path="/panning" page={PanningPage} name="panning" />
         <Route path="/" page={NewSessionPage} name="newSession" />
         <Route path="/sifter" page={SifterPage} name="sifter" />
+        </Private>
       </Set>
       <Route notfound page={NotFoundPage} />
     </Router>

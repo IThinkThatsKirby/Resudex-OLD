@@ -45,8 +45,9 @@ const SignupPage = () => {
   return (
     <>
       <MetaTags title="Signup" />
-
       <main class="responsive">
+          <h5>Sign up</h5>
+          <div>
                 <Form onSubmit={onSubmit} className="rw-form-wrapper">
                   <div class="field textarea border">
                   <TextField
@@ -87,7 +88,8 @@ const SignupPage = () => {
                     </Submit>
                   </div>
                 </Form>
-      </main>
+                </div>
+                </main>
     </>
   )
 }
