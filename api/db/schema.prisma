@@ -4,7 +4,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -16,8 +16,8 @@ model Bcard {
 }
 
 model Profession {
-  type          String? @unique @db.VarChar(255)
-  profession_id Int     @id @unique @default(autoincrement())
+  type          String @unique
+  profession_id Int    @id @unique @default(autoincrement())
 }
 
 model Bcardspecialization {
@@ -28,7 +28,7 @@ model Bcardspecialization {
 
 model Specialization {
   specialization_id Int    @id @unique @default(autoincrement())
-  type              String @unique @db.VarChar(255)
+  type              String @unique
   profession_id     Int
 }
 
