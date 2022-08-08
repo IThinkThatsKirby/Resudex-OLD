@@ -1,36 +1,35 @@
-import 'web/src/index.css'
+// import 'web/src/index.css'
+
+// former beercss -- https://hastebin.com/izuzofupem.js
 const BCard = (data) => {
   return (
-    <article className="round">
-        <div className="col min">
-          <img
-            className="circle large"
-            alt="Pretty"
-            src="/beer-and-woman.jpg"
-          ></img>
-        </div>
-        <div className="userJobInfoContainer">
-        <h2 className="cardName">Ed Shizenboker</h2>
-          <div className="cardExperience">
-            <h5>💼 | Industry Experience </h5>
-            <ul  className="experienceList">
-              <li>Worked at Facebook / META</li>
-              <li>Worked at Twitter</li>
-              <li>Worked at Arby's</li>
-            </ul>
-          </div>
-          <div className="cardProjects">
-            <h5>🔗 | Projects Showcase</h5>
-            <ul className="projectsList">
-              <li>https://github.com/wangeditor-team/wangEditor</li>
-              <li>https://github.com/wangeditor-team/wangEditor-for-react</li>
-              <li>https://github.com/wangeditor-team/wangEditor-for-vue</li>
-            </ul>
-          </div>
-        <button className="nahButton">NAH FAM</button>
-        <button className="yasButton">YAS QUEEN</button>
-        </div>
-    </article>
+<article class="border round primary-container">
+  <div class="row padding">
+    <div class="max">
+      <h5 class="bold">Name</h5>
+      <div>
+      <h4>Work Exp</h4>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+      </div>
+      <div>
+      <h4>Code Projects</h4>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <button class="round green column">yas</button>
+    <button class="round red column">nah</button>
+  </nav>
+</article>
   )
 }
 

@@ -7,10 +7,6 @@ const PanningPage = () => {
     <>
       <MetaTags title="Panning" description="Panning page" />
 
-      <h1>PanningPage</h1>
-      <h2>
-        you will sift threw resumes matching basic qualifying descriptions.
-      </h2>
       <BCard />
     </>
   )

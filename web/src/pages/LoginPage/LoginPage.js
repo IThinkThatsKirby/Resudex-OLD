@@ -43,7 +43,7 @@ const LoginPage = () => {
     <>
       <MetaTags title="Login" />
 
-      <main className="rw-main">
+      <main class="responsive" className="rw-main">
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
 
         <div className="rw-scaffold rw-login-container">
