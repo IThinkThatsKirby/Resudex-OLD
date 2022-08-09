@@ -21,9 +21,11 @@ model Profession {
 }
 
 model Bcardspecialization {
-  user_id           Int @id
+  bcs_id            Int @id
+  user_id           Int
   specialization_id Int
   bcard_id          Int
+  years_exp         Int
 }
 
 model Specialization {

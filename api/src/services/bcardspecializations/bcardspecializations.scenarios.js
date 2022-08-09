@@ -1,11 +1,23 @@
 export const standard = defineScenario({
   bcardspecialization: {
     one: {
-      data: { user_id: 4338723, specialization_id: 7503342, bcard_id: 7852632 },
+      data: {
+        bcs_id: 3017151,
+        user_id: 7285393,
+        specialization_id: 6826857,
+        bcard_id: 9110076,
+        years_exp: 7371509,
+      },
     },
 
     two: {
-      data: { user_id: 2774712, specialization_id: 1268025, bcard_id: 9280867 },
+      data: {
+        bcs_id: 275807,
+        user_id: 5564927,
+        specialization_id: 9494040,
+        bcard_id: 7159234,
+        years_exp: 6655642,
+      },
     },
   },
 })
