@@ -9,42 +9,42 @@ datasource db {
 }
 
 model Bcard {
-  bcard_id        Int                   @id @unique @default(autoincrement())
-  owner           User                  @relation(fields: [user_id], references: [user_id])
-  profession      Profession            @relation(fields: [profession_id], references: [profession_id])
+  id              Int                   @id @default(autoincrement())
+  owner           User                  @relation(fields: [user_id], references: [id])
+  profession      Profession            @relation(fields: [profession_id], references: [id])
   specializations Bcardspecialization[]
   user_id         Int
   profession_id   Int
 }
 
 model Profession {
-  type          String  @unique
-  profession_id Int     @id @unique @default(autoincrement())
-  Bcard         Bcard[]
+  id    Int     @id @unique @default(autoincrement())
+  type  String  @unique
+  Bcard Bcard[]
 }
 
 model Bcardspecialization {
-  bcs_id            Int            @id @default(autoincrement())
-  specialization    Specialization @relation(fields: [specialization_id], references: [specialization_id])
+  id                Int            @id @default(autoincrement())
+  specialization    Specialization @relation(fields: [specialization_id], references: [id])
   years_exp         Int
-  Bcard             Bcard?         @relation(fields: [Bcard_id], references: [bcard_id])
+  Bcard             Bcard?         @relation(fields: [Bcard_id], references: [id])
   Bcard_id          Int
   specialization_id Int
 }
 
 model Specialization {
-  specialization_id    Int                   @id @unique @default(autoincrement())
+  id                   Int                   @id @unique @default(autoincrement())
   type                 String                @unique
   profession_id        Int
   Bcardspecializations Bcardspecialization[]
 }
 
 model User {
-  user_id      Int     @id @unique @default(autoincrement())
+  id           Int     @id @unique @default(autoincrement())
   name         String
   email        String? @unique
   password     String?
-  phone_number String
-  user_type_id Int     @default(1)
+  phone_number String?
+  user_type_id Int?    @default(1)
   bcard        Bcard[]
 }

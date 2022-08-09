@@ -36,9 +36,6 @@ const Navigation = () => {
               <Link to={routes.signup()}>
                 <button className="signUp">Sign Up </button>
               </Link>
-              <Link to={routes.signin()}>
-                <button className="signIn">Sign In </button>
-              </Link>
             </nav>
           </header>
         </>

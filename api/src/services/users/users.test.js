@@ -21,11 +21,10 @@ describe('users', () => {
 
   scenario('creates a user', async () => {
     const result = await createUser({
-      input: { name: 'String', phone_number: 'String' },
+      input: { name: 'String' },
     })
 
     expect(result.name).toEqual('String')
-    expect(result.phone_number).toEqual('String')
   })
 
   scenario('updates a user', async (scenario) => {

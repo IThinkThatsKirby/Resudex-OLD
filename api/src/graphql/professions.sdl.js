@@ -1,7 +1,7 @@
 export const schema = gql`
   type Profession {
+    id: Int!
     type: String!
-    profession_id: Int!
     Bcard: [Bcard]!
   }
 
@@ -12,12 +12,10 @@ export const schema = gql`
 
   input CreateProfessionInput {
     type: String!
-    profession_id: Int!
   }
 
   input UpdateProfessionInput {
     type: String
-    profession_id: Int
   }
 
   type Mutation {

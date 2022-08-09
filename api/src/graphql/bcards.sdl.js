@@ -1,6 +1,6 @@
 export const schema = gql`
   type Bcard {
-    bcard_id: Int!
+    id: Int!
     owner: User!
     profession: Profession!
     specializations: [Bcardspecialization]!
@@ -14,13 +14,11 @@ export const schema = gql`
   }
 
   input CreateBcardInput {
-    bcard_id: Int!
     user_id: Int!
     profession_id: Int!
   }
 
   input UpdateBcardInput {
-    bcard_id: Int
     user_id: Int
     profession_id: Int
   }
@@ -28,6 +26,5 @@ export const schema = gql`
   type Mutation {
     createBcard(input: CreateBcardInput!): Bcard! @skipAuth
     updateBcard(id: Int!, input: UpdateBcardInput!): Bcard! @skipAuth
-    deleteBcard(id: Int!): Bcard! @skipAuth
   }
 `

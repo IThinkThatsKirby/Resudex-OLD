@@ -92,7 +92,7 @@ const BcardsList = ({ bcards }) => {
         <tbody>
           {bcards.map((bcard) => (
             <tr key={bcard.id}>
-              <td>{truncate(bcard.bcard_id)}</td>
+              <td>{truncate(bcard.id)}</td>
 
               <td>{truncate(bcard.user_id)}</td>
 

@@ -75,7 +75,7 @@ const Bcard = ({ bcard }) => {
             <tbody>
               <tr>
                 <th>Bcard id</th>
-                <td>{bcard.bcard_id}</td>
+                <td>{bcard.id}</td>
               </tr>
               <tr>
                 <th>User id</th>

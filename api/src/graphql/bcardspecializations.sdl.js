@@ -1,6 +1,6 @@
 export const schema = gql`
   type Bcardspecialization {
-    bcs_id: Int!
+    id: Int!
     specialization: Specialization!
     years_exp: Int!
     Bcard: Bcard
@@ -14,14 +14,12 @@ export const schema = gql`
   }
 
   input CreateBcardspecializationInput {
-    bcs_id: Int!
     years_exp: Int!
     Bcard_id: Int!
     specialization_id: Int!
   }
 
   input UpdateBcardspecializationInput {
-    bcs_id: Int
     years_exp: Int
     Bcard_id: Int
     specialization_id: Int

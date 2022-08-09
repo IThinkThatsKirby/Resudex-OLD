@@ -5,7 +5,7 @@ import Bcards from 'src/components/Bcard/Bcards'
 export const QUERY = gql`
   query FindBcards {
     bcards {
-      bcard_id
+      id
       user_id
       profession_id
     }
@@ -16,18 +16,19 @@ export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => {
   return (
-    <div className="rw-text-center">
-      {'No bcards yet. '}
-
-      <Link to={routes.newBcard()} className="rw-link">
-        {'Create one?'}
+    <>
+      <div className="responsive center-align round yellow large-margin small-padding">
+        No bcards yet.
+      </div>
+      <Link to={routes.newBcard()} className="button blue responsive">
+        Create one?
       </Link>
-    </div>
+    </>
   )
 }
 
 export const Failure = ({ error }) => (
-  <div className="rw-cell-error">{error.message}</div>
+  <div className="button">{error.message}</div>
 )
 
 export const Success = ({ bcards }) => {
