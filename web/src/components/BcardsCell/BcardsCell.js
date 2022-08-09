@@ -1,7 +1,10 @@
 export const QUERY = gql`
   query BcardsQuery {
-    bcards {
+    bcards: Bcard {
       id
+      owner
+      profession_id
+      user_id
     }
   }
 `

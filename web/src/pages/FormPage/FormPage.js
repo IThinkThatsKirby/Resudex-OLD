@@ -19,9 +19,9 @@ const FormPage = () => {
             <TextField name="email" placeholder="email" />
             <TextField name="jobTitle" placeholder="Job Title" />
             <TextField name="jobExp" placeholder="Work Experience" />
-            <TextField
-              name="yrsInIndustry"
-              placeholder="Total years worked in tech"
+            <NumberField
+              name="years_exp"
+              placeholder="Total years of experience"
             />
             <TextField name="education" placeholder="Education" />
             <Submit>Submit</Submit>

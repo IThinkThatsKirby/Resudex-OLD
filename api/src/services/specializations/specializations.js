@@ -28,3 +28,10 @@ export const deleteSpecialization = ({ id }) => {
     where: { id },
   })
 }
+
+export const Specialization = {
+  Bcardspecializations: (_obj, { root }) =>
+    db.specialization
+      .findUnique({ where: { id: root.id } })
+      .Bcardspecializations(),
+}
