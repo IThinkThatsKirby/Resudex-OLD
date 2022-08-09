@@ -1,12 +1,18 @@
+import SignoutBtn from 'src/components/SignoutBtn/SignoutBtn'
 import GlobalLayout from 'src/layouts/GlobalLayout/GlobalLayout'
 
 const HomePage = () => {
   return (
-    <GlobalLayout>
-        <button class="extend circle large" className="panRoute" onclick="navigate(routes.Panning)">
-          Begin Searching!
-        </button>
-    </GlobalLayout>
+    <>
+      <article>
+        <a className="button responsive" href="/form">
+          Create a buisness card
+        </a>
+        <a className="button responsive" href="/panning">
+          vew dem cards
+        </a>
+      </article>
+    </>
   )
 }
 

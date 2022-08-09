@@ -9,12 +9,9 @@
 
 import { Router, Route, Private, Set } from '@redwoodjs/router'
 
-import TopBarLayout from 'src/layouts/TopBarLayout/TopBarLayout'
-// import UsersLayout from 'src/layouts/UsersLayout'
-
-import NewBcard from './components/BCard/NewBcard/NewBcard'
+import GlobalLayout from './layouts/GlobalLayout/GlobalLayout'
+import FormPage from './pages/FormPage/FormPage'
 import HomePage from './pages/HomepagePage/HomepagePage'
-
 const Routes = () => {
   return (
     <Router>
@@ -22,9 +19,9 @@ const Routes = () => {
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
 
-      <Set wrap={TopBarLayout}>
+      <Set wrap={GlobalLayout}>
         <Private unauthenticated="signin">
-          <Route path="/newbcard" page={NewBcard} name="newbcard" />
+          <Route path="/form" page={FormPage} name="form" />
         </Private>
         <Route path="/homepage" page={HomePage} name="homepage" />
         <Route path="/signin" page={SigninPage} name="signin" />

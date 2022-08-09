@@ -6,7 +6,6 @@ import { MetaTags } from '@redwoodjs/web'
 const SigninPage = () => {
   const { logIn } = useAuth()
   const [error, setError] = React.useState(null)
-
   const onSubmit = (data) => {
     setError(null)
     logIn({ email: data.email, password: data.password, remember: true })
