@@ -35,6 +35,8 @@ model Specialization {
 model User {
   user_id      Int     @id @unique @default(autoincrement())
   name         String
+  email        String? @unique
+  password     String?
   phone_number String
   user_type_id Int     @default(1)
   bcard        Bcard[]

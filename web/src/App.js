@@ -8,25 +8,24 @@ import 'beercss'
 import 'material-dynamic-colors'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
-
 import './scaffold.css'
 import './index.css'
 
 const goTrueClient = new GoTrue({
-  APIUrl: 'https://golden-pony-e7e7b0.netlify.app/.netlify/identity',
+  APIUrl: env('GOTRUE_SITE_URL'),
   setCookie: true,
 })
 
-const App = () => (
-  <FatalErrorBoundary page={FatalErrorPage}>
-    <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
+function App() {
+  return (
+    <FatalErrorBoundary page={FatalErrorPage}>
       <AuthProvider client={goTrueClient} type="goTrue">
         <RedwoodApolloProvider>
           <Routes />
         </RedwoodApolloProvider>
       </AuthProvider>
-    </RedwoodProvider>
-  </FatalErrorBoundary>
-)
+    </FatalErrorBoundary>
+  )
+}
 
 export default App
