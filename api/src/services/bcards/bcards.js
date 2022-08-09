@@ -32,4 +32,8 @@ export const deleteBcard = ({ id }) => {
 export const Bcard = {
   owner: (_obj, { root }) =>
     db.bcard.findUnique({ where: { id: root.id } }).owner(),
+  profession: (_obj, { root }) =>
+    db.bcard.findUnique({ where: { id: root.id } }).profession(),
+  specializations: (_obj, { root }) =>
+    db.bcard.findUnique({ where: { id: root.id } }).specializations(),
 }

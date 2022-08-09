@@ -9,29 +9,34 @@ datasource db {
 }
 
 model Bcard {
-  bcard_id      Int  @id @unique @default(autoincrement())
-  owner         User @relation(fields: [user_id], references: [user_id])
-  profession_id Int
-  user_id       Int
+  bcard_id        Int                   @id @unique @default(autoincrement())
+  owner           User                  @relation(fields: [user_id], references: [user_id])
+  profession      Profession            @relation(fields: [profession_id], references: [profession_id])
+  specializations Bcardspecialization[]
+  user_id         Int
+  profession_id   Int
 }
 
 model Profession {
-  type          String @unique
-  profession_id Int    @id @unique @default(autoincrement())
+  type          String  @unique
+  profession_id Int     @id @unique @default(autoincrement())
+  Bcard         Bcard[]
 }
 
 model Bcardspecialization {
-  bcs_id            Int @id
-  user_id           Int
-  specialization_id Int
-  bcard_id          Int
+  bcs_id            Int            @id @default(autoincrement())
+  specialization    Specialization @relation(fields: [specialization_id], references: [specialization_id])
   years_exp         Int
+  Bcard             Bcard?         @relation(fields: [Bcard_id], references: [bcard_id])
+  Bcard_id          Int
+  specialization_id Int
 }
 
 model Specialization {
-  specialization_id Int    @id @unique @default(autoincrement())
-  type              String @unique
-  profession_id     Int
+  specialization_id    Int                   @id @unique @default(autoincrement())
+  type                 String                @unique
+  profession_id        Int
+  Bcardspecializations Bcardspecialization[]
 }
 
 model User {

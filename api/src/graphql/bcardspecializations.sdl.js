@@ -1,10 +1,11 @@
 export const schema = gql`
   type Bcardspecialization {
     bcs_id: Int!
-    user_id: Int!
-    specialization_id: Int!
-    bcard_id: Int!
+    specialization: Specialization!
     years_exp: Int!
+    Bcard: Bcard
+    Bcard_id: Int!
+    specialization_id: Int!
   }
 
   type Query {
@@ -14,18 +15,16 @@ export const schema = gql`
 
   input CreateBcardspecializationInput {
     bcs_id: Int!
-    user_id: Int!
-    specialization_id: Int!
-    bcard_id: Int!
     years_exp: Int!
+    Bcard_id: Int!
+    specialization_id: Int!
   }
 
   input UpdateBcardspecializationInput {
     bcs_id: Int
-    user_id: Int
-    specialization_id: Int
-    bcard_id: Int
     years_exp: Int
+    Bcard_id: Int
+    specialization_id: Int
   }
 
   type Mutation {

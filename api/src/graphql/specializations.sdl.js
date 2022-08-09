@@ -3,6 +3,7 @@ export const schema = gql`
     specialization_id: Int!
     type: String!
     profession_id: Int!
+    Bcardspecializations: [Bcardspecialization]!
   }
 
   type Query {

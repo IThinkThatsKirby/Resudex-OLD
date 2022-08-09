@@ -21,21 +21,24 @@ describe('bcards', () => {
 
   scenario('creates a bcard', async (scenario) => {
     const result = await createBcard({
-      input: { profession_id: 407334, user_id: scenario.bcard.two.user_id },
+      input: {
+        user_id: scenario.bcard.two.user_id,
+        profession_id: scenario.bcard.two.profession_id,
+      },
     })
 
-    expect(result.profession_id).toEqual(407334)
     expect(result.user_id).toEqual(scenario.bcard.two.user_id)
+    expect(result.profession_id).toEqual(scenario.bcard.two.profession_id)
   })
 
   scenario('updates a bcard', async (scenario) => {
     const original = await bcard({ id: scenario.bcard.one.id })
     const result = await updateBcard({
       id: original.id,
-      input: { profession_id: 9898832 },
+      input: { user_id: scenario.bcard.two.user_id },
     })
 
-    expect(result.profession_id).toEqual(9898832)
+    expect(result.user_id).toEqual(scenario.bcard.two.user_id)
   })
 
   scenario('deletes a bcard', async (scenario) => {

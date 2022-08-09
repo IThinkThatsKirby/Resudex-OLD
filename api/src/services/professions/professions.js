@@ -28,3 +28,8 @@ export const deleteProfession = ({ id }) => {
     where: { id },
   })
 }
+
+export const Profession = {
+  Bcard: (_obj, { root }) =>
+    db.profession.findUnique({ where: { id: root.id } }).Bcard(),
+}

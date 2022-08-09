@@ -29,22 +29,20 @@ describe('bcardspecializations', () => {
     expect(result).toEqual(scenario.bcardspecialization.one)
   })
 
-  scenario('creates a bcardspecialization', async () => {
+  scenario('creates a bcardspecialization', async (scenario) => {
     const result = await createBcardspecialization({
       input: {
-        bcs_id: 5774805,
-        user_id: 7669477,
-        specialization_id: 8128209,
-        bcard_id: 8196592,
-        years_exp: 8380486,
+        years_exp: 9491595,
+        Bcard_id: scenario.bcardspecialization.two.Bcard_id,
+        specialization_id: scenario.bcardspecialization.two.specialization_id,
       },
     })
 
-    expect(result.bcs_id).toEqual(5774805)
-    expect(result.user_id).toEqual(7669477)
-    expect(result.specialization_id).toEqual(8128209)
-    expect(result.bcard_id).toEqual(8196592)
-    expect(result.years_exp).toEqual(8380486)
+    expect(result.years_exp).toEqual(9491595)
+    expect(result.Bcard_id).toEqual(scenario.bcardspecialization.two.Bcard_id)
+    expect(result.specialization_id).toEqual(
+      scenario.bcardspecialization.two.specialization_id
+    )
   })
 
   scenario('updates a bcardspecialization', async (scenario) => {
@@ -54,10 +52,10 @@ describe('bcardspecializations', () => {
 
     const result = await updateBcardspecialization({
       id: original.id,
-      input: { bcs_id: 9489931 },
+      input: { years_exp: 4489985 },
     })
 
-    expect(result.bcs_id).toEqual(9489931)
+    expect(result.years_exp).toEqual(4489985)
   })
 
   scenario('deletes a bcardspecialization', async (scenario) => {
