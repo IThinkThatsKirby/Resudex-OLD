@@ -4,8 +4,8 @@ export const QUERY = gql`
   query FindBcardById($id: Int!) {
     bcard: bcard(id: $id) {
       bcard_id
-      profession_id
       user_id
+      profession_id
     }
   }
 `

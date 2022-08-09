@@ -17,15 +17,23 @@ const SignupPage = () => {
   }
 
   return (
-    <GlobalLayout>
-      <h1>Sign Up</h1>
-      <Form onSubmit={onSubmit}>
+    <article>
+      <h1 className="center-align small-padding">Sign Up</h1>
+      <Form className="center-align" onSubmit={onSubmit}>
         {error && <p>{error}</p>}
-        <TextField name="email" placeholder="email" />
-        <PasswordField name="password" placeholder="password" />
+        <TextField
+          className="field  small round"
+          name="email"
+          placeholder="email"
+        />
+        <PasswordField
+          className="field password small round"
+          name="password"
+          placeholder="password"
+        />
         <Submit>Sign Up</Submit>
       </Form>
-    </GlobalLayout>
+    </article>
   )
 }
 

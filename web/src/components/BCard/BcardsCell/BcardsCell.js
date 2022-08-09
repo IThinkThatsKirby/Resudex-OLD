@@ -4,10 +4,10 @@ import Bcards from 'src/components/Bcard/Bcards'
 
 export const QUERY = gql`
   query FindBcards {
-    Bcard {
+    bcards {
       bcard_id
-      profession_id
       user_id
+      profession_id
     }
   }
 `

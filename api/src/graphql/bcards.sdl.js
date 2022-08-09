@@ -9,8 +9,8 @@ export const schema = gql`
   }
 
   type Query {
-    bcards: [Bcard!]! @requireAuth
-    bcard(id: Int!): Bcard @requireAuth
+    bcards: [Bcard!]! @skipAuth
+    bcard(id: Int!): Bcard @skipAuth
   }
 
   input CreateBcardInput {
@@ -26,8 +26,8 @@ export const schema = gql`
   }
 
   type Mutation {
-    createBcard(input: CreateBcardInput!): Bcard! @requireAuth
-    updateBcard(id: Int!, input: UpdateBcardInput!): Bcard! @requireAuth
-    deleteBcard(id: Int!): Bcard! @requireAuth
+    createBcard(input: CreateBcardInput!): Bcard! @skipAuth
+    updateBcard(id: Int!, input: UpdateBcardInput!): Bcard! @skipAuth
+    deleteBcard(id: Int!): Bcard! @skipAuth
   }
 `

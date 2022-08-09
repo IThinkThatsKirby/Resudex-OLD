@@ -81,9 +81,9 @@ const BcardsList = ({ bcards }) => {
           <tr>
             <th>Bcard id</th>
 
-            <th>Profession id</th>
-
             <th>User id</th>
+
+            <th>Profession id</th>
 
             <th>&nbsp;</th>
           </tr>
@@ -94,9 +94,9 @@ const BcardsList = ({ bcards }) => {
             <tr key={bcard.id}>
               <td>{truncate(bcard.bcard_id)}</td>
 
-              <td>{truncate(bcard.profession_id)}</td>
-
               <td>{truncate(bcard.user_id)}</td>
+
+              <td>{truncate(bcard.profession_id)}</td>
 
               <td>
                 <nav className="rw-table-actions">

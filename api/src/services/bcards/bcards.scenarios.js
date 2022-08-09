@@ -3,14 +3,14 @@ export const standard = defineScenario({
     one: {
       data: {
         owner: { create: { name: 'String', phone_number: 'String' } },
-        profession: { create: { type: 'String8632659' } },
+        profession: { create: { type: 'String9758673' } },
       },
     },
 
     two: {
       data: {
         owner: { create: { name: 'String', phone_number: 'String' } },
-        profession: { create: { type: 'String3917371' } },
+        profession: { create: { type: 'String3106505' } },
       },
     },
   },

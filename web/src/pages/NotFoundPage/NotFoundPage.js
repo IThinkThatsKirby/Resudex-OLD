@@ -37,9 +37,9 @@ export default () => (
     />
 
     <section>
-      <h1>
+      <h9>
         <span>404 Page Not Found</span>
-      </h1>
+      </h9>
     </section>
   </main>
 )

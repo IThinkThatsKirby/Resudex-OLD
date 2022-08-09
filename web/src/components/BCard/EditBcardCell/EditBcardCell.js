@@ -9,8 +9,8 @@ export const QUERY = gql`
   query EditBcardById($id: Int!) {
     bcard: bcard(id: $id) {
       bcard_id
-      profession_id
       user_id
+      profession_id
     }
   }
 `
@@ -18,8 +18,8 @@ const UPDATE_BCARD_MUTATION = gql`
   mutation UpdateBcardMutation($id: Int!, $input: UpdateBcardInput!) {
     updateBcard(id: $id, input: $input) {
       bcard_id
-      profession_id
       user_id
+      profession_id
     }
   }
 `
