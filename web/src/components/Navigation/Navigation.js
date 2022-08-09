@@ -8,7 +8,19 @@ const Navigation = () => {
   return (
     <nav>
       {isAuthenticated ? (
-        <SignoutBtn />
+        <header className="primary responsive small-padding">
+          <nav>
+            <button className="secondary-container circle button">
+              <i>menu</i>
+              <li className="dropdown no-wrap secondary round">
+                <a href="/panning">NEW Resumes</a>
+                <a href="/sifter">Your Resudex</a>
+              </li>
+            </button>
+            <h5 className="max center-align">🗂️ | Resudex</h5>
+            <SignoutBtn />
+          </nav>
+        </header>
       ) : (
         <>
           <header className="primary responsive small-padding">

@@ -8,7 +8,11 @@ const SignoutBtn = () => {
     logOut().then(() => navigate(routes.home()))
   }
 
-  return <button onClick={() => onClick()}>Sign Out</button>
+  return (
+    <button className="blue" onClick={() => onClick()}>
+      Sign Out
+    </button>
+  )
 }
 
 export default SignoutBtn
