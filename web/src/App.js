@@ -8,13 +8,13 @@ import 'beercss'
 import 'material-dynamic-colors'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
-
 import './scaffold.css'
 import './index.css'
 
 const goTrueClient = new GoTrue({
   APIUrl: 'https://golden-pony-e7e7b0.netlify.app/.netlify/identity',
-  setCookie: true,
+  audience: '',
+  setCookie: false,
 })
 
 const App = () => (

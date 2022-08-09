@@ -1,5 +1,6 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
+
 import BCard from 'src/components/BCard/BCard'
 
 const PanningPage = () => {

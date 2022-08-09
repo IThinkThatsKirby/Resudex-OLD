@@ -1,0 +1,47 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model bcard {
+  bcard_id             Int                    @id @unique @default(autoincrement())
+  owner                user                   @relation(fields: [user_id], references: [user_id])
+  profession_id        Int
+  user_id              Int
+  bcard_specialization bcard_specialization[]
+}
+
+model profession {
+  type           String?          @db.VarChar(255)
+  profession_id  Int              @id @unique @default(autoincrement())
+  specialization specialization[]
+}
+
+model bcard_specialization {
+  user_id           Int            @id
+  specialization    specialization @relation(fields: [specialization_id], references: [specialization_id])
+  specialization_id Int
+  bcard             bcard          @relation(fields: [bcard_id], references: [bcard_id])
+  bcard_id          Int
+}
+
+model specialization {
+  specialization_id    Int                    @id @unique @default(autoincrement())
+  type                 String                 @db.VarChar(255)
+  profession_type      profession             @relation(fields: [profession_id], references: [profession_id])
+  profession_id        Int
+  bcard_specialization bcard_specialization[]
+}
+
+model user {
+  user_id      Int     @id @unique @default(autoincrement())
+  name         String
+  phone_number String
+  user_type_id Int     @default(1)
+  bcard        bcard[]
+}

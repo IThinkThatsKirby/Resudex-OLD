@@ -28,3 +28,8 @@ export const deleteUser = ({ id }) => {
     where: { id },
   })
 }
+
+export const User = {
+  bcard: (_obj, { root }) =>
+    db.user.findUnique({ where: { id: root.id } }).bcard(),
+}
