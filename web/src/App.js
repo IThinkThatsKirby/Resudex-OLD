@@ -12,20 +12,21 @@ import './scaffold.css'
 import './index.css'
 
 const goTrueClient = new GoTrue({
-  APIUrl: env('GOTRUE_SITE_URL'),
-  setCookie: true,
+  APIUrl: 'https://golden-pony-e7e7b0.netlify.app/.netlify/identity',
+  audience: '',
+  setCookie: false,
 })
 
-function App() {
-  return (
-    <FatalErrorBoundary page={FatalErrorPage}>
+const App = () => (
+  <FatalErrorBoundary page={FatalErrorPage}>
+    <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
       <AuthProvider client={goTrueClient} type="goTrue">
         <RedwoodApolloProvider>
           <Routes />
         </RedwoodApolloProvider>
       </AuthProvider>
-    </FatalErrorBoundary>
-  )
-}
+    </RedwoodProvider>
+  </FatalErrorBoundary>
+)
 
 export default App

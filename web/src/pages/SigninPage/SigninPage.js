@@ -10,7 +10,7 @@ const SigninPage = () => {
   const onSubmit = (data) => {
     setError(null)
     logIn({ email: data.email, password: data.password, remember: true })
-      .then(() => navigate(routes.home()))
+      .then(() => navigate(routes.homepage()))
       .catch((error) => setError(error.message))
   }
   return (
@@ -19,7 +19,7 @@ const SigninPage = () => {
       <article className="border medium no-padding">
         <div className="padding primary absolute center middle">
           <h5>Sign In!</h5>
-          <div className="signInContainer space">
+          <div className="space">
             <Form onSubmit={onSubmit} config={{ mode: 'onBlur' }}>
               {error && <p>{error}</p>}
               <div className="field label border fill">

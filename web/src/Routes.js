@@ -10,7 +10,9 @@
 import { Router, Route, Private, Set } from '@redwoodjs/router'
 
 import TopBarLayout from 'src/layouts/TopBarLayout/TopBarLayout'
-import UsersLayout from 'src/layouts/UsersLayout'
+// import UsersLayout from 'src/layouts/UsersLayout'
+
+import HomePage from './pages/HomepagePage/HomepagePage'
 
 const Routes = () => {
   return (
@@ -18,25 +20,18 @@ const Routes = () => {
       <Route path="/login" page={LoginPage} name="login" />
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
-      <Set wrap={UsersLayout}>
-        <Route path="/users/new" page={UserNewUserPage} name="newUser" />
-        <Route path="/users/{id:Int}/edit" page={UserEditUserPage} name="editUser" />
-        <Route path="/users/{id:Int}" page={UserUserPage} name="user" />
-        <Route path="/users" page={UserUsersPage} name="users" />
-        <Route path="/user/resudex" page={ResudexPage} name="resudex" />
-      </Set>
 
       <Set wrap={TopBarLayout}>
-        <Private unauthenticated="signin" roles={['employer', 'employee']}>
+        <Private unauthenticated="signin">
           <Route path="/form" page={FormPage} name="form" />
         </Private>
-        <Route path="/homepage" page={HomepagePage} name="homepage" />
+        <Route path="/homepage" page={HomePage} name="homepage" />
         <Route path="/signin" page={SigninPage} name="signin" />
         <Route path="/signup" page={SignupPage} name="signup" />
-<Private unauthenticated='signin'>
+        <Private unauthenticated="signin">
           <Route path="/panning" page={PanningPage} name="panning" />
-        <Route path="/" page={NewSessionPage} name="newSession" />
-        <Route path="/sifter" page={SifterPage} name="sifter" />
+          <Route path="/" page={NewSessionPage} name="newSession" />
+          <Route path="/sifter" page={SifterPage} name="sifter" />
         </Private>
       </Set>
       <Route notfound page={NotFoundPage} />
