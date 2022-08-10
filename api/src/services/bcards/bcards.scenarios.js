@@ -2,15 +2,17 @@ export const standard = defineScenario({
   bcard: {
     one: {
       data: {
-        owner: { create: { name: 'String' } },
-        profession: { create: { type: 'String7044827' } },
+        netlify_id: 4543367,
+        name: 'String',
+        profession: { create: { type: 'String5613795' } },
       },
     },
 
     two: {
       data: {
-        owner: { create: { name: 'String' } },
-        profession: { create: { type: 'String4531446' } },
+        netlify_id: 8607880,
+        name: 'String',
+        profession: { create: { type: 'String737654' } },
       },
     },
   },

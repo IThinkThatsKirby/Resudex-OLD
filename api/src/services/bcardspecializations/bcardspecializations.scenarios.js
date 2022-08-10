@@ -2,18 +2,18 @@ export const standard = defineScenario({
   bcardspecialization: {
     one: {
       data: {
-        years_exp: 8679061,
+        years_exp: 7639056,
         specialization: {
-          create: { type: 'String2092843', profession_id: 8321780 },
+          create: { type: 'String647498', profession_id: 8290730 },
         },
       },
     },
 
     two: {
       data: {
-        years_exp: 3693984,
+        years_exp: 9513498,
         specialization: {
-          create: { type: 'String6188637', profession_id: 4023183 },
+          create: { type: 'String9573902', profession_id: 4926098 },
         },
       },
     },

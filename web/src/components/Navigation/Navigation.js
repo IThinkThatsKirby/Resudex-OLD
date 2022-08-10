@@ -1,4 +1,6 @@
-import { useAuth, CurrentUser } from '@redwoodjs/auth'
+import { currentUser } from 'netlify-identity-widget'
+
+import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
 import SignoutBtn from 'src/components/SignoutBtn/SignoutBtn'
@@ -7,6 +9,7 @@ import SigninBtn from '../SigninBtn/SigninBtn'
 
 const Navigation = () => {
   const { isAuthenticated } = useAuth()
+  const cUser = currentUser().user_metadata.full_name
   return (
     <nav>
       {isAuthenticated ? (
@@ -20,7 +23,7 @@ const Navigation = () => {
               </li>
             </button>
             <h5 className="max center-align">🗂️ | Resudex</h5>
-            <p>Howdy!</p>
+            <p>Howdy {cUser}!</p>
             <SignoutBtn />
           </nav>
         </header>

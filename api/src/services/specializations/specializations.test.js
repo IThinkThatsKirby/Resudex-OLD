@@ -29,11 +29,11 @@ describe('specializations', () => {
 
   scenario('creates a specialization', async () => {
     const result = await createSpecialization({
-      input: { type: 'String8959497', profession_id: 7919472 },
+      input: { type: 'String5609326', profession_id: 6553553 },
     })
 
-    expect(result.type).toEqual('String8959497')
-    expect(result.profession_id).toEqual(7919472)
+    expect(result.type).toEqual('String5609326')
+    expect(result.profession_id).toEqual(6553553)
   })
 
   scenario('updates a specialization', async (scenario) => {
@@ -43,10 +43,10 @@ describe('specializations', () => {
 
     const result = await updateSpecialization({
       id: original.id,
-      input: { type: 'String21327272' },
+      input: { type: 'String87221342' },
     })
 
-    expect(result.type).toEqual('String21327272')
+    expect(result.type).toEqual('String87221342')
   })
 
   scenario('deletes a specialization', async (scenario) => {

@@ -64,46 +64,65 @@ const Bcard = ({ bcard }) => {
 
   return (
     <>
-      <article className="responsive">
-        <div className="rw-segment">
-          <header className="rw-segment-header">
-            <h2 className="rw-heading rw-heading-secondary">
-              Bcard {bcard.id} Detail
-            </h2>
-          </header>
-          <table className="rw-table">
-            <tbody>
-              <tr>
-                <th>Bcard id</th>
-                <td>{bcard.id}</td>
-              </tr>
-              <tr>
-                <th>User id</th>
-                <td>{bcard.user_id}</td>
-              </tr>
-              <tr>
-                <th>Profession id</th>
-                <td>{bcard.profession_id}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <nav className="rw-button-group">
-          <Link
-            to={routes.editBcard({ id: bcard.id })}
-            className="rw-button rw-button-blue"
-          >
-            Edit
-          </Link>
-          <button
-            type="button"
-            className="rw-button rw-button-red"
-            onClick={() => onDeleteClick(bcard.id)}
-          >
-            Delete
-          </button>
-        </nav>
-      </article>
+      <div className="rw-segment">
+        <header className="rw-segment-header">
+          <h2 className="rw-heading rw-heading-secondary">
+            Bcard {bcard.id} Detail
+          </h2>
+        </header>
+
+        <table className="rw-table">
+          <tbody>
+            <tr>
+              <th>Id</th>
+
+              <td>{bcard.id}</td>
+            </tr>
+            <tr>
+              <th>Netlify id</th>
+
+              <td>{bcard.netlify_id}</td>
+            </tr>
+            <tr>
+              <th>Cell number</th>
+
+              <td>{bcard.cell_number}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+
+              <td>{bcard.email}</td>
+            </tr>
+            <tr>
+              <th>Name</th>
+
+              <td>{bcard.name}</td>
+            </tr>
+            <tr>
+              <th>Profession id</th>
+
+              <td>{bcard.profession_id}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <nav className="rw-button-group">
+        <Link
+          to={routes.editBcard({ id: bcard.id })}
+          className="rw-button rw-button-blue"
+        >
+          Edit
+        </Link>
+
+        <button
+          type="button"
+          className="rw-button rw-button-red"
+          onClick={() => onDeleteClick(bcard.id)}
+        >
+          Delete
+        </button>
+      </nav>
     </>
   )
 }

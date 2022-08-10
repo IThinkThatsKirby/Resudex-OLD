@@ -10,10 +10,12 @@ datasource db {
 
 model Bcard {
   id              Int                   @id @default(autoincrement())
-  owner           User                  @relation(fields: [user_id], references: [id])
+  netlify_id      Int
+  cell_number     String?
+  email           String?
+  name            String
   profession      Profession            @relation(fields: [profession_id], references: [id])
   specializations Bcardspecialization[]
-  user_id         Int
   profession_id   Int
 }
 
@@ -37,14 +39,4 @@ model Specialization {
   type                 String                @unique
   profession_id        Int
   Bcardspecializations Bcardspecialization[]
-}
-
-model User {
-  id           Int     @id @unique @default(autoincrement())
-  name         String
-  email        String? @unique
-  password     String?
-  phone_number String?
-  user_type_id Int?    @default(1)
-  bcard        Bcard[]
 }

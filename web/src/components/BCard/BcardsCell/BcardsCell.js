@@ -6,7 +6,10 @@ export const QUERY = gql`
   query FindBcards {
     bcards {
       id
-      user_id
+      netlify_id
+      cell_number
+      email
+      name
       profession_id
     }
   }
@@ -16,19 +19,18 @@ export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => {
   return (
-    <>
-      <div className="responsive center-align round yellow large-margin small-padding">
-        No bcards yet.
-      </div>
-      <Link to={routes.newBcard()} className="button blue responsive">
-        Create one?
+    <div className="rw-text-center">
+      {'No bcards yet. '}
+
+      <Link to={routes.newBcard()} className="rw-link">
+        {'Create one?'}
       </Link>
-    </>
+    </div>
   )
 }
 
 export const Failure = ({ error }) => (
-  <div className="button">{error.message}</div>
+  <div className="rw-cell-error">{error.message}</div>
 )
 
 export const Success = ({ bcards }) => {

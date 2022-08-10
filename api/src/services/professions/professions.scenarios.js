@@ -1,6 +1,6 @@
 export const standard = defineScenario({
   profession: {
-    one: { data: { type: 'String8847589' } },
-    two: { data: { type: 'String5606960' } },
+    one: { data: { type: 'String6949023' } },
+    two: { data: { type: 'String5855591' } },
   },
 })

@@ -1,6 +1,6 @@
 export const standard = defineScenario({
   specialization: {
-    one: { data: { type: 'String6013434', profession_id: 4786545 } },
-    two: { data: { type: 'String3329969', profession_id: 4545893 } },
+    one: { data: { type: 'String2489890', profession_id: 1801577 } },
+    two: { data: { type: 'String681242', profession_id: 2140398 } },
   },
 })

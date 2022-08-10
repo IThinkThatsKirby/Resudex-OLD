@@ -22,12 +22,14 @@ describe('bcards', () => {
   scenario('creates a bcard', async (scenario) => {
     const result = await createBcard({
       input: {
-        user_id: scenario.bcard.two.user_id,
+        netlify_id: 3188541,
+        name: 'String',
         profession_id: scenario.bcard.two.profession_id,
       },
     })
 
-    expect(result.user_id).toEqual(scenario.bcard.two.user_id)
+    expect(result.netlify_id).toEqual(3188541)
+    expect(result.name).toEqual('String')
     expect(result.profession_id).toEqual(scenario.bcard.two.profession_id)
   })
 
@@ -35,10 +37,10 @@ describe('bcards', () => {
     const original = await bcard({ id: scenario.bcard.one.id })
     const result = await updateBcard({
       id: original.id,
-      input: { user_id: scenario.bcard.two.user_id },
+      input: { netlify_id: 6818047 },
     })
 
-    expect(result.user_id).toEqual(scenario.bcard.two.user_id)
+    expect(result.netlify_id).toEqual(6818047)
   })
 
   scenario('deletes a bcard', async (scenario) => {
