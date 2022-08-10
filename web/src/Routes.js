@@ -29,6 +29,7 @@ const Routes = () => {
       </Set>
       <Set wrap={GlobalLayout}>
         <Route path="/homepage" page={HomepagePage} name="homepage" />
+
         <Route path="/" page={NewSessionPage} name="newSession" />
       </Set>
       <Route notfound page={NotFoundPage} />
