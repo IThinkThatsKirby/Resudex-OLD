@@ -11,7 +11,7 @@ import { Router, Route, Private, Set } from '@redwoodjs/router'
 
 import BcardsLayout from './layouts/BcardsLayout/BcardsLayout'
 import GlobalLayout from './layouts/GlobalLayout/GlobalLayout'
-import HomePage from './pages/HomepagePage/HomepagePage'
+import HomepagePage from './pages/HomepagePage/HomepagePage'
 
 const Routes = () => {
   return (
@@ -20,20 +20,16 @@ const Routes = () => {
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Set wrapper={BcardsLayout}>
-        {/* <Private unauthenticated="signin"> */}
-        <Route path="/bcards/new" page={BcardNewBcardPage} name="newBcard" />
-        <Route path="/bcards/{id:Int}/edit" page={BcardEditBcardPage} name="editBcard" />
-        <Route path="/bcards/{id:Int}" page={BcardBcardPage} name="bcard" />
-        <Route path="/bcards" page={BcardBcardsPage} name="bcards" />
-        {/* </Private> */}
+        <Private unauthenticated="/">
+          <Route path="/bcards/new" page={BcardNewBcardPage} name="newBcard" />
+          <Route path="/bcards/{id:Int}/edit" page={BcardEditBcardPage} name="editBcard" />
+          <Route path="/bcards/{id:Int}" page={BcardBcardPage} name="bcard" />
+          <Route path="/bcards" page={BcardBcardsPage} name="bcards" />
+        </Private>
       </Set>
       <Set wrap={GlobalLayout}>
-        <Route path="/homepage" page={HomePage} name="homepage" />
-        <Route path="/signin" page={SigninPage} name="signin" />
-        <Route path="/signup" page={SignupPage} name="signup" />
-        <Private unauthenticated="signin">
-          <Route path="/" page={HomePage} name="newSession" />
-        </Private>
+        <Route path="/homepage" page={HomepagePage} name="homepage" />
+        <Route path="/" page={NewSessionPage} name="newSession" />
       </Set>
       <Route notfound page={NotFoundPage} />
     </Router>

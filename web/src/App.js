@@ -1,6 +1,7 @@
-import GoTrue from 'gotrue-js'
+import netlifyIdentity from 'netlify-identity-widget'
 
 import { AuthProvider } from '@redwoodjs/auth'
+import { isBrowser } from '@redwoodjs/prerender/browserUtils'
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 
@@ -11,16 +12,12 @@ import Routes from 'src/Routes'
 import './scaffold.css'
 import './index.css'
 
-const goTrueClient = new GoTrue({
-  APIUrl: 'https://golden-pony-e7e7b0.netlify.app/.netlify/identity',
-  audience: '',
-  setCookie: false,
-})
+isBrowser && netlifyIdentity.init()
 
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-      <AuthProvider client={goTrueClient} type="goTrue">
+      <AuthProvider client={netlifyIdentity} type="netlify">
         <RedwoodApolloProvider>
           <Routes />
         </RedwoodApolloProvider>
