@@ -19,19 +19,17 @@ const Routes = () => {
       <Route path="/login" page={LoginPage} name="login" />
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
-      <Set wrapper={BcardsLayout}>
-        <Private unauthenticated="/">
+
+      <Private unauthenticated="newSession">
+        <Set wrap={GlobalLayout}>
           <Route path="/bcards/new" page={BcardNewBcardPage} name="newBcard" />
           <Route path="/bcards/{id:Int}/edit" page={BcardEditBcardPage} name="editBcard" />
           <Route path="/bcards/{id:Int}" page={BcardBcardPage} name="bcard" />
           <Route path="/bcards" page={BcardBcardsPage} name="bcards" />
-        </Private>
-      </Set>
-      <Set wrap={GlobalLayout}>
-        <Route path="/homepage" page={HomepagePage} name="homepage" />
-
-        <Route path="/" page={NewSessionPage} name="newSession" />
-      </Set>
+          <Route path="/homepage" page={HomepagePage} name="homepage" />
+        </Set>
+      </Private>
+      <Route path="/newsession" page={NewSessionPage} name="newSession" />
       <Route notfound page={NotFoundPage} />
     </Router>
   )
