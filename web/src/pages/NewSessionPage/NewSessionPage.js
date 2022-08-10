@@ -17,25 +17,11 @@ const NewSessionPage = () => {
       ) : (
         <>
           <article className="responsive border deep-purple3">
-            <h1 className="center-align">Welcome to your Resudex</h1>
+            <h1 className="center-align bold">Welcome to your Resudex</h1>
             <h2 className="center-align">Create, Save, and Search Resumes</h2>
             <div className="center-align responsive">
-              <button
-                className="blue responsive small-margin"
-                onClick={() => up()}
-              >
-                <button className="signIn">
-                  <button className="purple1 black-text">Sign up</button>
-                </button>
-              </button>
-              <button
-                className="blue small-margin responsive"
-                onClick={useAuth().logIn}
-              >
-                <button className="signIn">
-                  <button className="purple1 black-text">Login</button>
-                </button>
-              </button>
+              <button onClick={() => up()} className="purple1 black-text">Sign up</button>
+              <button onClick={useAuth().logIn} class="purple1 black-text">Login</button>
             </div>
           </article>
           <div className="center-align">

@@ -20,7 +20,7 @@ const BcardForm = (props) => {
         className="rw-label"
         errorClassName="rw-label rw-label-error toast"
       >
-        User id
+        User ID
       </Label>
 
       <NumberField
