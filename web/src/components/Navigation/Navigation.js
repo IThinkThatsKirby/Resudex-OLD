@@ -1,7 +1,7 @@
 import { currentUser } from 'netlify-identity-widget'
 
 import { useAuth } from '@redwoodjs/auth'
-import { Link, routes } from '@redwoodjs/router'
+// import { Link, routes } from '@redwoodjs/router'
 
 import SignoutBtn from 'src/components/SignoutBtn/SignoutBtn'
 

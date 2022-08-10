@@ -22,10 +22,6 @@ const Routes = () => {
 
       <Private unauthenticated="newSession">
         <Set wrap={GlobalLayout}>
-          <Route path="/bcards/new" page={BcardNewBcardPage} name="newBcard" />
-          <Route path="/bcards/{id:Int}/edit" page={BcardEditBcardPage} name="editBcard" />
-          <Route path="/bcards/{id:Int}" page={BcardBcardPage} name="bcard" />
-          <Route path="/bcards" page={BcardBcardsPage} name="bcards" />
           <Route path="/homepage" page={HomepagePage} name="homepage" />
         </Set>
       </Private>
