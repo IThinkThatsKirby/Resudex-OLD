@@ -13,26 +13,24 @@ const SigninPage = () => {
       .catch((error) => setError(error.message))
   }
   return (
-    <>
+    <article className="medium no-padding">
       <MetaTags title="Signin" description="Signin page" />
-      <article className="border medium no-padding">
-        <div className="padding primary absolute center middle">
-          <h5>Sign In!</h5>
-          <div className="space">
-            <Form onSubmit={onSubmit} config={{ mode: 'onBlur' }}>
-              {error && <p>{error}</p>}
-              <div className="field label border fill">
-                <TextField name="email" placeholder="email" />
-              </div>
-              <div className="field label border fill">
-                <PasswordField name="password" placeholder="password" />
-              </div>
-              <Submit class="responsive round fill">Sign In</Submit>
-            </Form>
-          </div>
+      <div className="padding primary absolute center middle">
+        <h5>Sign In!</h5>
+        <div className="space">
+          <Form onSubmit={onSubmit} config={{ mode: 'onBlur' }}>
+            {error && <p>{error}</p>}
+            <div className="field label border fill">
+              <TextField name="email" placeholder="email" />
+            </div>
+            <div className="field label border fill">
+              <PasswordField name="password" placeholder="password" />
+            </div>
+            <Submit class="responsive round fill">Sign In</Submit>
+          </Form>
         </div>
-      </article>
-    </>
+      </div>
+    </article>
   )
 }
 

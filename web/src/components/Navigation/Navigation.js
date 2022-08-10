@@ -1,7 +1,9 @@
-import { useAuth } from '@redwoodjs/auth'
+import { useAuth, CurrentUser } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
 import SignoutBtn from 'src/components/SignoutBtn/SignoutBtn'
+
+import SigninBtn from '../SigninBtn/SigninBtn'
 
 const Navigation = () => {
   const { isAuthenticated } = useAuth()
@@ -18,6 +20,7 @@ const Navigation = () => {
               </li>
             </button>
             <h5 className="max center-align">🗂️ | Resudex</h5>
+            <p>Howdy!</p>
             <SignoutBtn />
           </nav>
         </header>
@@ -33,12 +36,7 @@ const Navigation = () => {
                 </li>
               </button>
               <h5 className="max center-align">🗂️ | Resudex</h5>
-              <Link to={routes.signup()}>
-                <button className="signUp">Sign Up </button>
-              </Link>
-              <Link to={routes.signin()}>
-                <button className="signIn">Sign In </button>
-              </Link>
+              <SigninBtn />
             </nav>
           </header>
         </>

@@ -13,58 +13,50 @@ const BcardForm = (props) => {
   }
 
   return (
-    <div className="rw-form-wrapper">
-      <Form onSubmit={onSubmit} error={props.error}>
-        <FormError
-          error={props.error}
-          wrapperClassName="rw-form-error-wrapper"
-          titleClassName="rw-form-error-title"
-          listClassName="rw-form-error-list"
-        />
+    <Form className="center-align" onSubmit={onSubmit} error={props.error}>
+      <FormError error={props.error} />
+      <Label
+        name="user_id"
+        className="rw-label"
+        errorClassName="rw-label rw-label-error toast"
+      >
+        User id
+      </Label>
 
-        <Label
-          name="profession_id"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Profession id
-        </Label>
+      <NumberField
+        name="user_id"
+        defaultValue={props.bcard?.user_id}
+        className="rw-input"
+        errorClassName="rw-input rw-input-error"
+        validation={{ required: true }}
+      />
 
-        <NumberField
-          name="profession_id"
-          defaultValue={props.bcard?.profession_id}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
+      <FieldError name="user_id" className="rw-field-error" />
 
-        <FieldError name="profession_id" className="rw-field-error" />
+      <Label
+        name="profession_id"
+        className="rw-label"
+        errorClassName="rw-label rw-label-error"
+      >
+        Profession id
+      </Label>
 
-        <Label
-          name="user_id"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          User id
-        </Label>
+      <NumberField
+        name="profession_id"
+        defaultValue={props.bcard?.profession_id}
+        className="rw-input"
+        errorClassName="rw-input rw-input-error"
+        validation={{ required: true }}
+      />
 
-        <NumberField
-          name="user_id"
-          defaultValue={props.bcard?.user_id}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
+      <FieldError name="profession_id" className="rw-field-error" />
 
-        <FieldError name="user_id" className="rw-field-error" />
-
-        <div className="rw-button-group">
-          <Submit disabled={props.loading} className="rw-button rw-button-blue">
-            Save
-          </Submit>
-        </div>
-      </Form>
-    </div>
+      <div className="rw-button-group">
+        <Submit disabled={props.loading} className="responsive">
+          Save
+        </Submit>
+      </div>
+    </Form>
   )
 }
 

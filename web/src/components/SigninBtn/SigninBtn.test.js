@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import BCard from './BCard'
+import SigninBtn from './SigninBtn'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-components
 
-describe('BCard', () => {
+describe('SigninBtn', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<BCard />)
+      render(<SigninBtn />)
     }).not.toThrow()
   })
 })

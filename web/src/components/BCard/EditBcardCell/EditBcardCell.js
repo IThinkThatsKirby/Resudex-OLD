@@ -1,5 +1,4 @@
 import { navigate, routes } from '@redwoodjs/router'
-
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
@@ -8,18 +7,18 @@ import BcardForm from 'src/components/Bcard/BcardForm'
 export const QUERY = gql`
   query EditBcardById($id: Int!) {
     bcard: bcard(id: $id) {
-      bcard_id
-      profession_id
+      id
       user_id
+      profession_id
     }
   }
 `
 const UPDATE_BCARD_MUTATION = gql`
   mutation UpdateBcardMutation($id: Int!, $input: UpdateBcardInput!) {
     updateBcard(id: $id, input: $input) {
-      bcard_id
-      profession_id
+      id
       user_id
+      profession_id
     }
   }
 `

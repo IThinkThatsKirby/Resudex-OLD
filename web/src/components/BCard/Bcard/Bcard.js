@@ -64,50 +64,46 @@ const Bcard = ({ bcard }) => {
 
   return (
     <>
-      <div className="rw-segment">
-        <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">
-            Bcard {bcard.id} Detail
-          </h2>
-        </header>
-
-        <table className="rw-table">
-          <tbody>
-            <tr>
-              <th>Bcard id</th>
-
-              <td>{bcard.bcard_id}</td>
-            </tr>
-            <tr>
-              <th>Profession id</th>
-
-              <td>{bcard.profession_id}</td>
-            </tr>
-            <tr>
-              <th>User id</th>
-
-              <td>{bcard.user_id}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <nav className="rw-button-group">
-        <Link
-          to={routes.editBcard({ id: bcard.id })}
-          className="rw-button rw-button-blue"
-        >
-          Edit
-        </Link>
-
-        <button
-          type="button"
-          className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(bcard.id)}
-        >
-          Delete
-        </button>
-      </nav>
+      <article className="responsive">
+        <div className="rw-segment">
+          <header className="rw-segment-header">
+            <h2 className="rw-heading rw-heading-secondary">
+              Bcard {bcard.id} Detail
+            </h2>
+          </header>
+          <table className="rw-table">
+            <tbody>
+              <tr>
+                <th>Bcard id</th>
+                <td>{bcard.id}</td>
+              </tr>
+              <tr>
+                <th>User id</th>
+                <td>{bcard.user_id}</td>
+              </tr>
+              <tr>
+                <th>Profession id</th>
+                <td>{bcard.profession_id}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <nav className="rw-button-group">
+          <Link
+            to={routes.editBcard({ id: bcard.id })}
+            className="rw-button rw-button-blue"
+          >
+            Edit
+          </Link>
+          <button
+            type="button"
+            className="rw-button rw-button-red"
+            onClick={() => onDeleteClick(bcard.id)}
+          >
+            Delete
+          </button>
+        </nav>
+      </article>
     </>
   )
 }

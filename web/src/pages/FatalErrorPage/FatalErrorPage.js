@@ -54,9 +54,11 @@ export default RedwoodDevFatalErrorPage ||
       />
 
       <section>
-        <h1>
-          <span>Something went wrong</span>
-        </h1>
+        <div className="toast pink white-text">
+          <h9>
+            <span>Something went wrong</span>
+          </h9>
+        </div>
       </section>
     </main>
   ))

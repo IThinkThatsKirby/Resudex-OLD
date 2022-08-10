@@ -1,6 +1,6 @@
 export const schema = gql`
   type Specialization {
-    specialization_id: Int!
+    id: Int!
     type: String!
     profession_id: Int!
     Bcardspecializations: [Bcardspecialization]!
@@ -12,13 +12,11 @@ export const schema = gql`
   }
 
   input CreateSpecializationInput {
-    specialization_id: Int!
     type: String!
     profession_id: Int!
   }
 
   input UpdateSpecializationInput {
-    specialization_id: Int
     type: String
     profession_id: Int
   }

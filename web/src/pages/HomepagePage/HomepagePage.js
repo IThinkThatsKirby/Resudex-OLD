@@ -1,14 +1,11 @@
-import SignoutBtn from 'src/components/SignoutBtn/SignoutBtn'
-import GlobalLayout from 'src/layouts/GlobalLayout/GlobalLayout'
-
 const HomePage = () => {
   return (
     <>
       <article>
-        <a className="button responsive" href="/form">
+        <a className="button responsive" href="/bcards/new">
           Create a buisness card
         </a>
-        <a className="button responsive" href="/panning">
+        <a className="button responsive" href="/bcards">
           vew dem cards
         </a>
       </article>
