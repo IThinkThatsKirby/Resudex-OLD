@@ -2,8 +2,11 @@ export const schema = gql`
   type Specialization {
     id: Int!
     type: String!
+    profession: Profession!
     profession_id: Int!
-    Bcardspecializations: [Bcardspecialization]!
+    st1: [Bcard]!
+    st2: [Bcard]!
+    st3: [Bcard]!
   }
 
   type Query {

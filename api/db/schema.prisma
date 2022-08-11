@@ -8,43 +8,36 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// graphql mutation limitations requre data objects to be monolithic in nature.
 model Bcard {
-  id              Int                   @id @default(autoincrement())
-  owner           User                  @relation(fields: [user_id], references: [id])
-  profession      Profession            @relation(fields: [profession_id], references: [id])
-  specializations Bcardspecialization[]
-  user_id         Int
-  profession_id   Int
+  id                  Int             @id @default(autoincrement())
+  netlify_id          String
+  cell_number         String?
+  email               String?
+  name                String
+  profession          Profession      @relation(fields: [profession_id], references: [id])
+  profession_id       Int
+  specialization1     Specialization  @relation(name: "Specialization1", fields: [specialization1type], references: [type])
+  specialization1type String
+  specialization2     Specialization? @relation(name: "Specialization2", fields: [specialization2type], references: [type])
+  specialization2type String
+  specialization3     Specialization? @relation(name: "Specialization3", fields: [specialization3type], references: [type])
+  specialization3type String
 }
 
 model Profession {
-  id    Int     @id @unique @default(autoincrement())
-  type  String  @unique
-  Bcard Bcard[]
-}
-
-model Bcardspecialization {
-  id                Int            @id @default(autoincrement())
-  specialization    Specialization @relation(fields: [specialization_id], references: [id])
-  years_exp         Int
-  Bcard             Bcard?         @relation(fields: [Bcard_id], references: [id])
-  Bcard_id          Int
-  specialization_id Int
+  id              Int              @id @unique @default(autoincrement())
+  type            String           @unique
+  bcard           Bcard[]
+  specializations Specialization[]
 }
 
 model Specialization {
-  id                   Int                   @id @unique @default(autoincrement())
-  type                 String                @unique
-  profession_id        Int
-  Bcardspecializations Bcardspecialization[]
-}
-
-model User {
-  id           Int     @id @unique @default(autoincrement())
-  name         String
-  email        String? @unique
-  password     String?
-  phone_number String?
-  user_type_id Int?    @default(1)
-  bcard        Bcard[]
+  id            Int        @id @unique @default(autoincrement())
+  type          String     @unique
+  profession    Profession @relation(fields: [profession_id], references: [id])
+  profession_id Int
+  st1           Bcard[]    @relation("Specialization1")
+  st2           Bcard[]    @relation("Specialization2")
+  st3           Bcard[]    @relation("Specialization3")
 }
