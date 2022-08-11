@@ -8,9 +8,7 @@
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
 import { Router, Route, Private, Set } from '@redwoodjs/router'
-
 import BcardsLayout from 'src/layouts/BcardsLayout'
-
 import GlobalLayout from './layouts/GlobalLayout/GlobalLayout'
 import HomepagePage from './pages/HomepagePage/HomepagePage'
 
