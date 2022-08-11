@@ -75,8 +75,8 @@ const BcardsList = ({ bcards }) => {
   }
 
   return (
-    <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
+    <div className="article responsive">
+      <table className="border no-space center-align">
         <thead>
           <tr>
             <th>Id</th>
@@ -127,7 +127,7 @@ const BcardsList = ({ bcards }) => {
                   <Link
                     to={routes.bcard({ id: bcard.id })}
                     title={'Show bcard ' + bcard.id + ' detail'}
-                    className="rw-button rw-button-small"
+                    className="border"
                   >
                     Show
                   </Link>
@@ -135,7 +135,7 @@ const BcardsList = ({ bcards }) => {
                   <Link
                     to={routes.editBcard({ id: bcard.id })}
                     title={'Edit bcard ' + bcard.id}
-                    className="rw-button rw-button-small rw-button-blue"
+                    className=""
                   >
                     Edit
                   </Link>
@@ -143,7 +143,7 @@ const BcardsList = ({ bcards }) => {
                   <button
                     type="button"
                     title={'Delete bcard ' + bcard.id}
-                    className="rw-button rw-button-small rw-button-red"
+                    className="border"
                     onClick={() => onDeleteClick(bcard.id)}
                   >
                     Delete

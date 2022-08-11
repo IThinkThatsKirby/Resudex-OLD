@@ -1,4 +1,5 @@
 import { Link, routes } from '@redwoodjs/router'
+import { useQuery } from '@redwoodjs/web'
 
 import Bcards from 'src/components/Bcard/Bcards'
 
@@ -17,7 +18,14 @@ export const QUERY = gql`
     }
   }
 `
-
+//use graphql playground to make your own query in a gql`` wraper
+const QUERY_BY_NID = gql`
+  query MyQuery {
+    specializations {
+      type
+    }
+  }
+`
 export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => {
@@ -37,5 +45,6 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ bcards }) => {
+  console.log(useQuery(QUERY_BY_NID).data) // show cases how to use query
   return <Bcards bcards={bcards} />
 }
