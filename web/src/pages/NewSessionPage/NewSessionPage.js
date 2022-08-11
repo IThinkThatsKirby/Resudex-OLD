@@ -2,7 +2,7 @@ import { useAuth } from '@redwoodjs/auth'
 import { ButtonField } from '@redwoodjs/forms'
 import { Redirect, navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
-
+import Hero from 'src/components/Hero/Hero'
 const NewSessionPage = () => {
   const { logIn, signUp, isAuthenticated } = useAuth()
   const SomePage = () => <Redirect to={routes.homepage()} />
@@ -22,19 +22,19 @@ const NewSessionPage = () => {
                 onClick={signUp}
                 className="purple1 border fill black-text"
               >
-                Sign up
+                SIGN UP
               </button>
               <button
                 onClick={logIn}
                 className="purple1 border fill black-text"
               >
-                Login
+                LOGIN
               </button>
             </div>
           </article>
           <div className="center-align">
-            tutorial and selling points go here
           </div>
+          <Hero />
         </>
       )}
     </div>
