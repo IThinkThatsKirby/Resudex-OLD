@@ -30,8 +30,12 @@ export const deleteSpecialization = ({ id }) => {
 }
 
 export const Specialization = {
-  Bcardspecializations: (_obj, { root }) =>
-    db.specialization
-      .findUnique({ where: { id: root.id } })
-      .Bcardspecializations(),
+  profession: (_obj, { root }) =>
+    db.specialization.findUnique({ where: { id: root.id } }).profession(),
+  st1: (_obj, { root }) =>
+    db.specialization.findUnique({ where: { id: root.id } }).st1(),
+  st2: (_obj, { root }) =>
+    db.specialization.findUnique({ where: { id: root.id } }).st2(),
+  st3: (_obj, { root }) =>
+    db.specialization.findUnique({ where: { id: root.id } }).st3(),
 }

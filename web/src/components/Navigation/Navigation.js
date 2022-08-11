@@ -9,7 +9,7 @@ import SigninBtn from '../SigninBtn/SigninBtn'
 
 const Navigation = () => {
   const { isAuthenticated } = useAuth()
-  const cUser = currentUser().user_metadata.full_name
+  const cUser = currentUser()
   return (
     <nav>
       {isAuthenticated ? (
@@ -23,7 +23,7 @@ const Navigation = () => {
               </li>
             </button>
             <h5 className="max center-align">🗂️ | Resudex</h5>
-            <p>Howdy {cUser}!</p>
+            <p>Howdy {cUser.user_metadata.full_name}!</p>
             <SignoutBtn />
           </nav>
         </header>
