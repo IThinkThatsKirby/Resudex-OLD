@@ -79,11 +79,23 @@ const BcardsList = ({ bcards }) => {
       <table className="rw-table">
         <thead>
           <tr>
-            <th>Bcard id</th>
+            <th>Id</th>
 
-            <th>User id</th>
+            <th>Netlify id</th>
+
+            <th>Cell number</th>
+
+            <th>Email</th>
+
+            <th>Name</th>
 
             <th>Profession id</th>
+
+            <th>Specialization1type</th>
+
+            <th>Specialization2type</th>
+
+            <th>Specialization3type</th>
 
             <th>&nbsp;</th>
           </tr>
@@ -94,9 +106,21 @@ const BcardsList = ({ bcards }) => {
             <tr key={bcard.id}>
               <td>{truncate(bcard.id)}</td>
 
-              <td>{truncate(bcard.user_id)}</td>
+              <td>{truncate(bcard.netlify_id)}</td>
+
+              <td>{truncate(bcard.cell_number)}</td>
+
+              <td>{truncate(bcard.email)}</td>
+
+              <td>{truncate(bcard.name)}</td>
 
               <td>{truncate(bcard.profession_id)}</td>
+
+              <td>{truncate(bcard.specialization1type)}</td>
+
+              <td>{truncate(bcard.specialization2type)}</td>
+
+              <td>{truncate(bcard.specialization3type)}</td>
 
               <td>
                 <nav className="rw-table-actions">

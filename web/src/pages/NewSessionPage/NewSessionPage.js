@@ -6,9 +6,7 @@ import { MetaTags } from '@redwoodjs/web'
 const NewSessionPage = () => {
   const { logIn, signUp, isAuthenticated } = useAuth()
   const SomePage = () => <Redirect to={routes.homepage()} />
-  const up = () => {
-    signUp().then(() => navigate(routes.homepage()))
-  }
+
   return (
     <div>
       <MetaTags title="NewSession" description="Login or Signup page" />
@@ -17,11 +15,21 @@ const NewSessionPage = () => {
       ) : (
         <>
           <article className="responsive border deep-purple3">
-            <h1 className="center-align bold">Welcome to your Resudex</h1>
+            <h1 className="center-align">Welcome to your Resudex</h1>
             <h2 className="center-align">Create, Save, and Search Resumes</h2>
             <div className="center-align responsive">
-              <button onClick={() => up()} className="purple1 black-text">Sign up</button>
-              <button onClick={useAuth().logIn} class="purple1 black-text">Login</button>
+              <button
+                onClick={signUp}
+                className="purple1 border fill black-text"
+              >
+                Sign up
+              </button>
+              <button
+                onClick={logIn}
+                className="purple1 border fill black-text"
+              >
+                Login
+              </button>
             </div>
           </article>
           <div className="center-align">

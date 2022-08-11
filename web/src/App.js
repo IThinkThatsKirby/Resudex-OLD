@@ -17,11 +17,11 @@ isBrowser && netlifyIdentity.init()
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-      <AuthProvider client={netlifyIdentity} type="netlify">
-        <RedwoodApolloProvider>
+      <RedwoodApolloProvider>
+        <AuthProvider client={netlifyIdentity} type="netlify">
           <Routes />
-        </RedwoodApolloProvider>
-      </AuthProvider>
+        </AuthProvider>
+      </RedwoodApolloProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
 )

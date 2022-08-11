@@ -5,7 +5,7 @@ const SignoutBtn = () => {
   const { logOut } = useAuth()
 
   const onClick = () => {
-    logOut().then(() => navigate(routes.home()))
+    logOut().then(() => navigate(routes.newSession()))
   }
 
   return (
