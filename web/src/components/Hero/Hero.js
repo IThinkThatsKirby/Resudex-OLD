@@ -1,21 +1,21 @@
 const Hero = () => {
   return (
-<article class="no-padding center">
-  <div class="grid no-space center-align">
-    <div class="s6">
+<article className="no-padding center">
+  <div className="grid no-space center-align">
+    <div className="s6">
     </div>
-    <div class="s6">
-      <div class="padding">
-        <h5 class="bold center-align">Welcome!</h5>
-        <p class="center-align">Resudex has helped <strong>1 MILLION</strong> users Find jobs, and over <strong>30,000</strong> employers find new candidates to build their dream team!</p>
-          <button class="border round">Learn More!</button>
+    <div className="s6">
+      <div className="padding">
+        <h5 className="bold center-align">Welcome!</h5>
+        <p className="center-align">Resudex has helped <strong>1 MILLION</strong> users Find jobs, and over <strong>30,000</strong> employers find new candidates to build their dream team!</p>
+          <button className="border round">Learn More!</button>
       </div>
     </div>
-    <div class="s6">
-      <div class="padding">
-        <h5 class="bold center-align">Want to work with us?</h5>
+    <div className="s6">
+      <div className="padding">
+        <h5 className="bold center-align">Want to work with us?</h5>
         <p>Resudex is currently hiring! interested? click the button below!</p>
-        <button class="border round">Apply Now!</button>
+        <button className="border round">Apply Now!</button>
       </div>
     </div>
   </div>
