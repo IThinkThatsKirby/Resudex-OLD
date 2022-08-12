@@ -8,17 +8,15 @@
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
 import { Router, Route, Private, Set } from '@redwoodjs/router'
-import BcardsLayout from 'src/layouts/BcardsLayout'
+
 import GlobalLayout from './layouts/GlobalLayout/GlobalLayout'
-import HomepagePage from './pages/HomepagePage/HomepagePage'
 
 const Routes = () => {
   return (
     <Router>
-      <Set wrap={BcardsLayout}></Set>
       <Private unauthenticated="newSession">
         <Set wrap={GlobalLayout}>
-          <Route path="/" page={HomepagePage} name="homepage" />
+          <Route path="/" page={NewSessionPage} name="newSession" />
           <Route path="/bcards/new" page={BcardNewBcardPage} name="newBcard" />
           <Route path="/bcards/{id:Int}/edit" page={BcardEditBcardPage} name="editBcard" />
           <Route path="/bcards/{id:Int}" page={BcardBcardPage} name="bcard" />
