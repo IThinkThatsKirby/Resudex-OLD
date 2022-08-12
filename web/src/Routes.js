@@ -10,13 +10,13 @@
 import { Router, Route, Private, Set } from '@redwoodjs/router'
 
 import GlobalLayout from './layouts/GlobalLayout/GlobalLayout'
-
+import HomePage from './pages/HomepagePage/HomepagePage'
 const Routes = () => {
   return (
     <Router>
       <Private unauthenticated="newSession">
         <Set wrap={GlobalLayout}>
-          <Route path="/" page={NewSessionPage} name="newSession" />
+          <Route path="/homepage" page={HomePage} name="homePage" />
           <Route path="/bcards/new" page={BcardNewBcardPage} name="newBcard" />
           <Route path="/bcards/{id:Int}/edit" page={BcardEditBcardPage} name="editBcard" />
           <Route path="/bcards/{id:Int}" page={BcardBcardPage} name="bcard" />
@@ -24,6 +24,7 @@ const Routes = () => {
         </Set>
       </Private>
       <Route path="/newsession" page={NewSessionPage} name="newSession" />
+      <Route path="/" page={NewSessionPage} name="newSession" />
       <Route notfound page={NotFoundPage} />
     </Router>
   )

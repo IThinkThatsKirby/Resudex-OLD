@@ -3,8 +3,9 @@ const HomePage = () => {
     <>
       <article>
         <p>
-          Hello and Welcome to Resudex! to begin please create a new card by using the button below!
-          Want to see some cards and maybe find a new hire? use the "view dem cards" button!
+          Hello and Welcome to Resudex! to begin please create a new card by
+          using the button below! Want to see some cards and maybe find a new
+          hire? use the "view dem cards" button!
         </p>
         <a className="button center row" href="/bcards/new">
           Create a business card
