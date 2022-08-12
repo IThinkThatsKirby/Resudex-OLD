@@ -15,16 +15,49 @@ model Bcard {
   cell_number         String?
   email               String?
   name                String
+  was_updated         Boolean?        @default(false)
   profession          Profession      @relation(fields: [profession_id], references: [id])
   profession_id       Int
   specialization1     Specialization  @relation(name: "Specialization1", fields: [specialization1type], references: [type])
   specialization1type String
+  specialization1exp  Int
   specialization2     Specialization? @relation(name: "Specialization2", fields: [specialization2type], references: [type])
   specialization2type String
+  specialization2exp  Int
   specialization3     Specialization? @relation(name: "Specialization3", fields: [specialization3type], references: [type])
   specialization3type String
+  specialization3exp  Int
+  UserResudex         UserResudex[]
 }
 
+// updatd our deleted bcards are saved here for version control.
+model versionBcard {
+  id                  Int      @id @default(autoincrement())
+  bcard_id_old        Int
+  netlify_id          String
+  cell_number         String?
+  email               String?
+  name                String?
+  was_updated         Boolean? @default(false)
+  was_deleted         Boolean? @default(false)
+  profession_id       Int?
+  specialization1type String?
+  specialization1exp  Int?
+  specialization2type String?
+  specialization2exp  Int?
+  specialization3type String?
+  specialization3exp  Int?
+}
+
+// Users can only save nondeletedcards that currently exist in the DB
+model UserResudex {
+  id         Int    @id @default(autoincrement())
+  netlify_id String
+  bcard      Bcard? @relation(fields: [bcard_id], references: [id])
+  bcard_id   Int?
+}
+
+// type safe reference for bcard creation form
 model Profession {
   id              Int              @id @unique @default(autoincrement())
   type            String           @unique
@@ -32,6 +65,7 @@ model Profession {
   specializations Specialization[]
 }
 
+//type safe reference for bcard creation form
 model Specialization {
   id            Int        @id @unique @default(autoincrement())
   type          String     @unique

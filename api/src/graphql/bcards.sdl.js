@@ -5,14 +5,19 @@ export const schema = gql`
     cell_number: String
     email: String
     name: String!
+    was_updated: Boolean
     profession: Profession!
     profession_id: Int!
     specialization1: Specialization!
     specialization1type: String!
+    specialization1exp: Int!
     specialization2: Specialization
     specialization2type: String!
+    specialization2exp: Int!
     specialization3: Specialization
     specialization3type: String!
+    specialization3exp: Int!
+    UserResudex: [UserResudex]!
   }
 
   type Query {
@@ -25,10 +30,14 @@ export const schema = gql`
     cell_number: String
     email: String
     name: String!
+    was_updated: Boolean
     profession_id: Int!
     specialization1type: String!
+    specialization1exp: Int!
     specialization2type: String!
+    specialization2exp: Int!
     specialization3type: String!
+    specialization3exp: Int!
   }
 
   input UpdateBcardInput {
@@ -36,10 +45,14 @@ export const schema = gql`
     cell_number: String
     email: String
     name: String
+    was_updated: Boolean
     profession_id: Int
     specialization1type: String
+    specialization1exp: Int
     specialization2type: String
+    specialization2exp: Int
     specialization3type: String
+    specialization3exp: Int
   }
 
   type Mutation {

@@ -27,20 +27,20 @@ describe('professions', () => {
 
   scenario('creates a profession', async () => {
     const result = await createProfession({
-      input: { type: 'String5304494' },
+      input: { type: 'String6256014' },
     })
 
-    expect(result.type).toEqual('String5304494')
+    expect(result.type).toEqual('String6256014')
   })
 
   scenario('updates a profession', async (scenario) => {
     const original = await profession({ id: scenario.profession.one.id })
     const result = await updateProfession({
       id: original.id,
-      input: { type: 'String48599572' },
+      input: { type: 'String4222382' },
     })
 
-    expect(result.type).toEqual('String48599572')
+    expect(result.type).toEqual('String4222382')
   })
 
   scenario('deletes a profession', async (scenario) => {

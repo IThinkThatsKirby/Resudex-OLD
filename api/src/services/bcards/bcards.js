@@ -38,4 +38,6 @@ export const Bcard = {
     db.bcard.findUnique({ where: { id: root.id } }).specialization2(),
   specialization3: (_obj, { root }) =>
     db.bcard.findUnique({ where: { id: root.id } }).specialization3(),
+  UserResudex: (_obj, { root }) =>
+    db.bcard.findUnique({ where: { id: root.id } }).UserResudex(),
 }
