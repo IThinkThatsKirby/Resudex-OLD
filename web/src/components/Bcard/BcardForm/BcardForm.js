@@ -16,7 +16,7 @@ const BcardForm = (props) => {
   const cUser = currentUser()
   console.log(cUser.id, cUser.user_metadata.full_name)
   return (
-    <div className="rw-form-wrapper">
+    <div>
       <Form onSubmit={onSubmit} error={props.error}>
         <FormError
           error={props.error}
@@ -24,7 +24,7 @@ const BcardForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-
+<div className="field label border round">
         <Label
           name="netlify_id"
           className="rw-label"
@@ -42,6 +42,9 @@ const BcardForm = (props) => {
         />
 
         <FieldError name="netlify_id" className="rw-field-error" />
+        </div>
+
+        <div className="field label border round">
 
         <Label
           name="cell_number"
@@ -59,7 +62,9 @@ const BcardForm = (props) => {
         />
 
         <FieldError name="cell_number" className="rw-field-error" />
+</div>
 
+<div className="field label border round">
         <Label
           name="email"
           className="rw-label"
@@ -76,7 +81,8 @@ const BcardForm = (props) => {
         />
 
         <FieldError name="email" className="rw-field-error" />
-
+</div>
+<div className="field label border round">
         <Label
           name="name"
           className="rw-label"
@@ -94,7 +100,8 @@ const BcardForm = (props) => {
         />
 
         <FieldError name="name" className="rw-field-error" />
-
+</div>
+<div className="field label border round">
         <Label
           name="profession_id"
           className="rw-label"
@@ -112,7 +119,8 @@ const BcardForm = (props) => {
         />
 
         <FieldError name="profession_id" className="rw-field-error" />
-
+    </div>
+    <div className="field label border round">
         <Label
           name="specialization1type"
           className="rw-label"
@@ -130,7 +138,8 @@ const BcardForm = (props) => {
         />
 
         <FieldError name="specialization1type" className="rw-field-error" />
-
+</div>
+<div className="field label border round">
         <Label
           name="specialization2type"
           className="rw-label"
@@ -148,6 +157,8 @@ const BcardForm = (props) => {
         />
 
         <FieldError name="specialization2type" className="rw-field-error" />
+        </div>
+        <div className="field label border round">
 
         <Label
           name="specialization3type"
@@ -166,9 +177,9 @@ const BcardForm = (props) => {
         />
 
         <FieldError name="specialization3type" className="rw-field-error" />
-
-        <div className="rw-button-group">
-          <Submit disabled={props.loading} className="rw-button rw-button-blue">
+        </div>
+<div className="center-align responsive">
+          <Submit disabled={props.loading} className="button responsive">
             Save
           </Submit>
         </div>
