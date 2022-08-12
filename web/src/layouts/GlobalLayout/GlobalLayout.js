@@ -1,5 +1,5 @@
-import Navigation from 'src/components/Navigation/Navigation'
 import Footer from 'src/components/Footer/Footer'
+import Navigation from 'src/components/Navigation/Navigation'
 const GlobalLayout = ({ children }) => {
   return (
     <>
