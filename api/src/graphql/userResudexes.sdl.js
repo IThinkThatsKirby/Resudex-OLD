@@ -2,12 +2,12 @@ export const schema = gql`
   type UserResudex {
     id: Int!
     netlify_id: String!
-    bcard: Bcard
-    bcard_id: Int
+    bcard: Bcard!
+    bcard_id: Int!
   }
 
   type Query {
-    userResudexes: [UserResudex!]! @requireAuth
+    userResudexes(netlify_id: String!): [UserResudex!]! @requireAuth
     userResudex(id: Int!): UserResudex @requireAuth
   }
 

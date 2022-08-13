@@ -1,7 +1,9 @@
 import { db } from 'src/lib/db'
 
-export const bcards = () => {
-  return db.bcard.findMany()
+export const bcards = ({ NetlifyId }) => {
+  return db.bcard.findMany({
+    where: { NetlifyId },
+  })
 }
 
 export const bcard = ({ id }) => {
