@@ -1,9 +1,11 @@
 import { db } from 'src/lib/db'
 
-export const bcards = ({ NetlifyId }) => {
-  return db.bcard.findMany({
-    where: { NetlifyId },
-  })
+export const userBcards = (args) => {
+  return db.bcard.findMany({ where: args })
+}
+
+export const bcards = () => {
+  return db.bcard.findMany()
 }
 
 export const bcard = ({ id }) => {
