@@ -30,7 +30,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="selfie"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Selfie
@@ -63,7 +63,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="name"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Name
@@ -82,7 +82,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="cell_number"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Cell number
@@ -100,7 +100,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="email"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Email
@@ -136,7 +136,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="profession"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Profession
@@ -155,7 +155,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="specialization1"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Specialization1
@@ -172,7 +172,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="specialization1exp"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Specialization1exp
@@ -191,7 +191,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="spreference1"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Spreference1
@@ -209,7 +209,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="specialization2"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Specialization2
@@ -227,7 +227,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="specialization2exp"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Specialization2exp
@@ -245,7 +245,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="spreference2"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Spreference2
@@ -263,7 +263,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="specialization3"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Specialization3
@@ -281,7 +281,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="specialization3exp"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Specialization3exp
@@ -299,7 +299,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="spreference3"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Spreference3
@@ -315,7 +315,10 @@ const BcardForm = (props) => {
           <FieldError name="spreference3" className="rw-field-error" />
         </div>
         <div className="field label border round">
-          <Submit disabled={props.loading} className="rw-button rw-button-blue">
+          <Submit
+            disabled={props.loading}
+            className="button center-align responsive"
+          >
             Save
           </Submit>
         </div>
