@@ -1,5 +1,4 @@
 import { currentUser } from 'netlify-identity-widget'
-
 import {
   Form,
   FormError,
@@ -9,6 +8,7 @@ import {
   NumberField,
   Submit,
 } from '@redwoodjs/forms'
+
 const BcardForm = (props) => {
   const onSubmit = (data) => {
     props.onSave(data, props?.bcard?.id)
