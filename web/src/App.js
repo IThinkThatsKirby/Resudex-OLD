@@ -9,8 +9,8 @@ import 'beercss'
 import 'material-dynamic-colors'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
-import './scaffold.css'
-import './index.css'
+// import './scaffold.css'
+// import './index.css'
 
 isBrowser && netlifyIdentity.init()
 

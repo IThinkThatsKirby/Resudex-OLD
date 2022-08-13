@@ -53,7 +53,8 @@ const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
-const BcardsList = ({ bcards }) => {
+const Bcards = ({ bcards }) => {
+  console.log(bcards)
   const [deleteBcard] = useMutation(DELETE_BCARD_MUTATION, {
     onCompleted: () => {
       toast.success('Bcard deleted')
@@ -75,119 +76,101 @@ const BcardsList = ({ bcards }) => {
   }
 
   return (
-    <div className="article responsive">
-      <table className="border no-space center-align">
-        <thead>
-          <tr>
-            <th>Id</th>
+    <div>
+      {bcards.map((bcard) => (
+        <div key={bcard.id}>
+          <a className="loader">{bcard.name}</a>
+        </div>
 
-            <th>Selfie</th>
+        /* <nav className="s2">
+            <Link
+              to={routes.bcard({ id: bcard.id })}
+              title={'Show bcard ' + bcard.id + ' detail'}
+              className="border"
+            >
+              Show
+            </Link>
 
-            <th>Netlify id</th>
+            <Link
+              to={routes.editBcard({ id: bcard.id })}
+              title={'Edit bcard ' + bcard.id}
+              className=""
+            >
+              Edit
+            </Link>
 
-            <th>Name</th>
-
-            <th>Cell number</th>
-
-            <th>Email</th>
-
-            <th>Was updated</th>
-
-            <th>Profession</th>
-
-            <th>Specialization1</th>
-
-            <th>Specialization1exp</th>
-
-            <th>Spreference1</th>
-
-            <th>Specialization2</th>
-
-            <th>Specialization2exp</th>
-
-            <th>Spreference2</th>
-
-            <th>Specialization3</th>
-
-            <th>Specialization3exp</th>
-
-            <th>Spreference3</th>
-
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {bcards.map((bcard) => (
-            <tr key={bcard.id}>
-              <td>{truncate(bcard.id)}</td>
-
-              <td>{truncate(bcard.selfie)}</td>
-
-              <td>{truncate(bcard.netlify_id)}</td>
-
-              <td>{truncate(bcard.name)}</td>
-
-              <td>{truncate(bcard.cell_number)}</td>
-
-              <td>{truncate(bcard.email)}</td>
-
-              <td>{checkboxInputTag(bcard.was_updated)}</td>
-
-              <td>{truncate(bcard.profession)}</td>
-
-              <td>{truncate(bcard.specialization1)}</td>
-
-              <td>{truncate(bcard.specialization1exp)}</td>
-
-              <td>{truncate(bcard.spreference1)}</td>
-
-              <td>{truncate(bcard.specialization2)}</td>
-
-              <td>{truncate(bcard.specialization2exp)}</td>
-
-              <td>{truncate(bcard.spreference2)}</td>
-
-              <td>{truncate(bcard.specialization3)}</td>
-
-              <td>{truncate(bcard.specialization3exp)}</td>
-
-              <td>{truncate(bcard.spreference3)}</td>
-
-              <td>
-                <nav className="card">
-                  <Link
-                    to={routes.bcard({ id: bcard.id })}
-                    title={'Show bcard ' + bcard.id + ' detail'}
-                    className="border"
-                  >
-                    Show
-                  </Link>
-
-                  <Link
-                    to={routes.editBcard({ id: bcard.id })}
-                    title={'Edit bcard ' + bcard.id}
-                    className=""
-                  >
-                    Edit
-                  </Link>
-
-                  <button
-                    type="button"
-                    title={'Delete bcard ' + bcard.id}
-                    className="border"
-                    onClick={() => onDeleteClick(bcard.id)}
-                  >
-                    Delete
-                  </button>
-                </nav>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+            <button
+              type="button"
+              title={'Delete bcard ' + bcard.id}
+              className="border"
+              onClick={() => onDeleteClick(bcard.id)}
+            >
+              Delete
+            </button>
+          </nav> */
+      ))}
     </div>
   )
 }
 
-export default BcardsList
+const UserBcardsList = ({ userBcards }) => {
+  console.log(userBcards)
+  const [deleteBcard] = useMutation(DELETE_BCARD_MUTATION, {
+    onCompleted: () => {
+      toast.success('Bcard deleted')
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    },
+    // This refetches the query on the list page. Read more about other ways to
+    // update the cache over here:
+    // https://www.apollographql.com/docs/react/data/mutations/#making-all-other-cache-updates
+    refetchQueries: [{ query: QUERY }],
+    awaitRefetchQueries: true,
+  })
+
+  const onDeleteClick = (id) => {
+    if (confirm('Are you sure you want to delete bcard ' + id + '?')) {
+      deleteBcard({ variables: { id } })
+    }
+  }
+
+  return (
+    <div>
+      {userBcards.map((userBcard) => (
+        <div key={userBcard.id}>
+          <a className="loader">{userBcard.name}</a>
+        </div>
+
+        /* <nav className="s2">
+            <Link
+              to={routes.bcard({ id: bcard.id })}
+              title={'Show bcard ' + bcard.id + ' detail'}
+              className="border"
+            >
+              Show
+            </Link>
+
+            <Link
+              to={routes.editBcard({ id: bcard.id })}
+              title={'Edit bcard ' + bcard.id}
+              className=""
+            >
+              Edit
+            </Link>
+
+            <button
+              type="button"
+              title={'Delete bcard ' + bcard.id}
+              className="border"
+              onClick={() => onDeleteClick(bcard.id)}
+            >
+              Delete
+            </button>
+          </nav> */
+      ))}
+    </div>
+  )
+}
+
+export { Bcards, UserBcardsList }

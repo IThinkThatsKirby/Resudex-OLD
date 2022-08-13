@@ -1,7 +1,11 @@
 import BcardsCell from 'src/components/Bcard/BcardsCell'
 
 const BcardsPage = () => {
-  return <BcardsCell />
+  return (
+    <article>
+      <BcardsCell />
+    </article>
+  )
 }
 
 export default BcardsPage
