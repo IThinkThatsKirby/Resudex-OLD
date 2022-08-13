@@ -137,7 +137,7 @@ const UserBcardsList = ({ userBcards }) => {
 
   return (
     <div>
-      {userBcards.map((userBcard) => (
+      {userBcards && userBcards.map((userBcard) => (
         <div key={userBcard.id}>
           <a className="loader">{userBcard.name}</a>
         </div>
