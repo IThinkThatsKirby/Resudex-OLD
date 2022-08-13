@@ -21,8 +21,9 @@ export const schema = gql`
   }
 
   type Query {
-    bcards: [Bcard!]! @requireAuth
+    bcards(netlify_id: String): [Bcard!]! @requireAuth
     bcard(id: Int!): Bcard @requireAuth
+    userbcards(netlify_id: String!): [Bcard!]! @requireAuth
   }
 
   input CreateBcardInput {

@@ -1,7 +1,9 @@
 import { db } from 'src/lib/db'
 
-export const userResudexes = () => {
-  return db.userResudex.findMany()
+export const userResudexes = ({ NetlifyId }) => {
+  return db.userResudex.findMany({
+    where: { NetlifyId },
+  })
 }
 
 export const userResudex = ({ id }) => {

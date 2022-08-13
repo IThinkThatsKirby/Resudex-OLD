@@ -4,7 +4,7 @@ import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import { QUERY } from 'src/components/Bcard/BcardsCell'
+import { QUERY, userQUERY } from 'src/components/Bcard/BcardsCell'
 
 const DELETE_BCARD_MUTATION = gql`
   mutation DeleteBcardMutation($id: Int!) {
@@ -75,8 +75,8 @@ const BcardsList = ({ bcards }) => {
   }
 
   return (
-    <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
+    <div className="article responsive">
+      <table className="border no-space center-align">
         <thead>
           <tr>
             <th>Id</th>
@@ -155,11 +155,11 @@ const BcardsList = ({ bcards }) => {
               <td>{truncate(bcard.spreference3)}</td>
 
               <td>
-                <nav className="rw-table-actions">
+                <nav className="card">
                   <Link
                     to={routes.bcard({ id: bcard.id })}
                     title={'Show bcard ' + bcard.id + ' detail'}
-                    className="rw-button rw-button-small"
+                    className="border"
                   >
                     Show
                   </Link>
@@ -167,7 +167,7 @@ const BcardsList = ({ bcards }) => {
                   <Link
                     to={routes.editBcard({ id: bcard.id })}
                     title={'Edit bcard ' + bcard.id}
-                    className="rw-button rw-button-small rw-button-blue"
+                    className=""
                   >
                     Edit
                   </Link>
@@ -175,7 +175,7 @@ const BcardsList = ({ bcards }) => {
                   <button
                     type="button"
                     title={'Delete bcard ' + bcard.id}
-                    className="rw-button rw-button-small rw-button-red"
+                    className="border"
                     onClick={() => onDeleteClick(bcard.id)}
                   >
                     Delete
