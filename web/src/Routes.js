@@ -16,6 +16,11 @@ const Routes = () => {
     <Router>
       <Private unauthenticated="newSession">
         <Set wrap={GlobalLayout}>
+          <Route path="/user-resudexes/new" page={UserResudexNewUserResudexPage} name="newUserResudex" />
+          <Route path="/user-resudexes/{id:Int}/edit" page={UserResudexEditUserResudexPage} name="editUserResudex" />
+          <Route path="/user-resudexes/{id:Int}" page={UserResudexUserResudexPage} name="userResudex" />
+          <Route path="/user-resudexes/{netlify_id:String}" page={UserResudexUserResudexesPage} name="userResudexes" />
+          <Route path="/user/resudex" page={ResudexPage} name="resudex" />
           <Route path="/homepage" page={HomePage} name="homePage" />
           <Route path="/bcards/new" page={BcardNewBcardPage} name="newBcard" />
           <Route path="/bcards/{id:Int}/edit" page={BcardEditBcardPage} name="editBcard" />

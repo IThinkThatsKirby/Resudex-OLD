@@ -1,8 +1,8 @@
 import { db } from 'src/lib/db'
 
-export const userResudexes = ({ args }) => {
+export const userResudexes = (args, { root, context, info }) => {
   return db.userResudex.findMany({
-    where: { args },
+    where: args,
   })
 }
 

@@ -4,6 +4,8 @@ import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
+import FavBtn from 'src/components/FavBtn/FavBtn'
+
 const DELETE_BCARD_MUTATION = gql`
   mutation DeleteBcardMutation($id: Int!) {
     deleteBcard(id: $id) {
@@ -46,6 +48,7 @@ const checkboxInputTag = (checked) => {
 }
 
 const Bcard = ({ bcard }) => {
+  console.log(bcard)
   const [deleteBcard] = useMutation(DELETE_BCARD_MUTATION, {
     onCompleted: () => {
       toast.success('Bcard deleted')
@@ -68,6 +71,7 @@ const Bcard = ({ bcard }) => {
         <header className="rw-segment-header">
           <h2 className="rw-heading rw-heading-secondary">
             Bcard {bcard.id} Detail
+            <FavBtn />
           </h2>
         </header>
 

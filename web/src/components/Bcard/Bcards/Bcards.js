@@ -1,10 +1,11 @@
 import humanize from 'humanize-string'
+import { currentUser } from 'netlify-identity-widget'
 
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import { QUERY, userQUERY } from 'src/components/Bcard/BcardsCell'
+import QUERY from 'src/components/Bcard/BcardsCell'
 
 const DELETE_BCARD_MUTATION = gql`
   mutation DeleteBcardMutation($id: Int!) {
@@ -53,7 +54,8 @@ const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
-const BcardsList = ({ bcards }) => {
+const Bcards = ({ bcards }, { userBcards }) => {
+  // const cUserId = currentUser().id
   const [deleteBcard] = useMutation(DELETE_BCARD_MUTATION, {
     onCompleted: () => {
       toast.success('Bcard deleted')
@@ -74,120 +76,82 @@ const BcardsList = ({ bcards }) => {
     }
   }
 
-  return (
-    <div className="article responsive">
-      <table className="border no-space center-align">
-        <thead>
-          <tr>
-            <th>Id</th>
+  if ({ bcards }) {
+    return (
+      <div>
+        {bcards.map((bcard) => (
+          <div key={bcard.id}>
+            <a className="loader">{bcard.name}</a>
+          </div>
 
-            <th>Selfie</th>
+          /* <nav className="s2">
+              <Link
+                to={routes.bcard({ id: bcard.id })}
+                title={'Show bcard ' + bcard.id + ' detail'}
+                className="border"
+              >
+                Show
+              </Link>
 
-            <th>Netlify id</th>
+              <Link
+                to={routes.editBcard({ id: bcard.id })}
+                title={'Edit bcard ' + bcard.id}
+                className=""
+              >
+                Edit
+              </Link>
 
-            <th>Name</th>
+              <button
+                type="button"
+                title={'Delete bcard ' + bcard.id}
+                className="border"
+                onClick={() => onDeleteClick(bcard.id)}
+              >
+                Delete
+              </button>
+            </nav> */
+        ))}
+      </div>
+    )
+  }
+  if (userBcards) {
+    console.log(userBcards)
+    return (
+      <div>
+        {userBcards.map((userbcard) => (
+          <div key={userbcard.id}>
+            <a className="loader">{userbcard.name}</a>
+          </div>
 
-            <th>Cell number</th>
+          /* <nav className="s2">
+              <Link
+                to={routes.bcard({ id: bcard.id })}
+                title={'Show bcard ' + bcard.id + ' detail'}
+                className="border"
+              >
+                Show
+              </Link>
 
-            <th>Email</th>
+              <Link
+                to={routes.editBcard({ id: bcard.id })}
+                title={'Edit bcard ' + bcard.id}
+                className=""
+              >
+                Edit
+              </Link>
 
-            <th>Was updated</th>
-
-            <th>Profession</th>
-
-            <th>Specialization1</th>
-
-            <th>Specialization1exp</th>
-
-            <th>Spreference1</th>
-
-            <th>Specialization2</th>
-
-            <th>Specialization2exp</th>
-
-            <th>Spreference2</th>
-
-            <th>Specialization3</th>
-
-            <th>Specialization3exp</th>
-
-            <th>Spreference3</th>
-
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {bcards.map((bcard) => (
-            <tr key={bcard.id}>
-              <td>{truncate(bcard.id)}</td>
-
-              <td>{truncate(bcard.selfie)}</td>
-
-              <td>{truncate(bcard.netlify_id)}</td>
-
-              <td>{truncate(bcard.name)}</td>
-
-              <td>{truncate(bcard.cell_number)}</td>
-
-              <td>{truncate(bcard.email)}</td>
-
-              <td>{checkboxInputTag(bcard.was_updated)}</td>
-
-              <td>{truncate(bcard.profession)}</td>
-
-              <td>{truncate(bcard.specialization1)}</td>
-
-              <td>{truncate(bcard.specialization1exp)}</td>
-
-              <td>{truncate(bcard.spreference1)}</td>
-
-              <td>{truncate(bcard.specialization2)}</td>
-
-              <td>{truncate(bcard.specialization2exp)}</td>
-
-              <td>{truncate(bcard.spreference2)}</td>
-
-              <td>{truncate(bcard.specialization3)}</td>
-
-              <td>{truncate(bcard.specialization3exp)}</td>
-
-              <td>{truncate(bcard.spreference3)}</td>
-
-              <td>
-                <nav className="card">
-                  <Link
-                    to={routes.bcard({ id: bcard.id })}
-                    title={'Show bcard ' + bcard.id + ' detail'}
-                    className="border"
-                  >
-                    Show
-                  </Link>
-
-                  <Link
-                    to={routes.editBcard({ id: bcard.id })}
-                    title={'Edit bcard ' + bcard.id}
-                    className=""
-                  >
-                    Edit
-                  </Link>
-
-                  <button
-                    type="button"
-                    title={'Delete bcard ' + bcard.id}
-                    className="border"
-                    onClick={() => onDeleteClick(bcard.id)}
-                  >
-                    Delete
-                  </button>
-                </nav>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )
+              <button
+                type="button"
+                title={'Delete bcard ' + bcard.id}
+                className="border"
+                onClick={() => onDeleteClick(bcard.id)}
+              >
+                Delete
+              </button>
+            </nav> */
+        ))}
+      </div>
+    )
+  }
 }
-
-export default BcardsList
+export default Bcards

@@ -1,7 +1,7 @@
 import { db } from 'src/lib/db'
 
-export const userBcards = (args) => {
-  return db.bcard.findMany({ where: args })
+export const userBcards = ({ args }) => {
+  return db.bcard.findMany({ where: { args } })
 }
 
 export const bcards = () => {
