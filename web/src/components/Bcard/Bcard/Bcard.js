@@ -48,6 +48,7 @@ const checkboxInputTag = (checked) => {
 }
 
 const Bcard = ({ bcard }) => {
+  console.log(bcard)
   const [deleteBcard] = useMutation(DELETE_BCARD_MUTATION, {
     onCompleted: () => {
       toast.success('Bcard deleted')

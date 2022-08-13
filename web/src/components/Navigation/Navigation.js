@@ -1,7 +1,7 @@
 import { currentUser } from 'netlify-identity-widget'
 
 import { useAuth } from '@redwoodjs/auth'
-// import { Link, routes } from '@redwoodjs/router'
+import { Link, routes } from '@redwoodjs/router'
 
 import SignoutBtn from 'src/components/SignoutBtn/SignoutBtn'
 
@@ -20,11 +20,16 @@ const Navigation = () => {
               <li className="dropdown no-wrap secondary round">
                 <a href="/bcards/new">Create a new Resume</a>
                 <a href="/bcards">Browse New Resumes</a>
-                <a href="user/resudex">Your Resudex</a>
               </li>
             </button>
             <h5 className="max center-align">🗂️ | Resudex</h5>
-            <p>Howdy {cUser.user_metadata.full_name}!</p>
+            <p>Howdy {cUser.user_metadata.full_name}!</p>{' '}
+            <Link
+              to={routes.userResudexes({ netlify_id: cUser.id })}
+              className="button pink"
+            >
+              Your Resudex
+            </Link>
             <SignoutBtn />
           </nav>
         </header>
