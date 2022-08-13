@@ -79,19 +79,9 @@ const Bcard = ({ bcard }) => {
               <td>{bcard.id}</td>
             </tr>
             <tr>
-              <th>Selfie</th>
-
-              <td>{bcard.selfie}</td>
-            </tr>
-            <tr>
               <th>Netlify id</th>
 
               <td>{bcard.netlify_id}</td>
-            </tr>
-            <tr>
-              <th>Name</th>
-
-              <td>{bcard.name}</td>
             </tr>
             <tr>
               <th>Cell number</th>
@@ -104,59 +94,29 @@ const Bcard = ({ bcard }) => {
               <td>{bcard.email}</td>
             </tr>
             <tr>
-              <th>Was updated</th>
+              <th>Name</th>
 
-              <td>{checkboxInputTag(bcard.was_updated)}</td>
+              <td>{bcard.name}</td>
             </tr>
             <tr>
-              <th>Profession</th>
+              <th>Profession id</th>
 
-              <td>{bcard.profession}</td>
+              <td>{bcard.profession_id}</td>
             </tr>
             <tr>
-              <th>Specialization1</th>
+              <th>Specialization1type</th>
 
-              <td>{bcard.specialization1}</td>
+              <td>{bcard.specialization1type}</td>
             </tr>
             <tr>
-              <th>Specialization1exp</th>
+              <th>Specialization2type</th>
 
-              <td>{bcard.specialization1exp}</td>
+              <td>{bcard.specialization2type}</td>
             </tr>
             <tr>
-              <th>Spreference1</th>
+              <th>Specialization3type</th>
 
-              <td>{bcard.spreference1}</td>
-            </tr>
-            <tr>
-              <th>Specialization2</th>
-
-              <td>{bcard.specialization2}</td>
-            </tr>
-            <tr>
-              <th>Specialization2exp</th>
-
-              <td>{bcard.specialization2exp}</td>
-            </tr>
-            <tr>
-              <th>Spreference2</th>
-
-              <td>{bcard.spreference2}</td>
-            </tr>
-            <tr>
-              <th>Specialization3</th>
-
-              <td>{bcard.specialization3}</td>
-            </tr>
-            <tr>
-              <th>Specialization3exp</th>
-
-              <td>{bcard.specialization3exp}</td>
-            </tr>
-            <tr>
-              <th>Spreference3</th>
-
-              <td>{bcard.spreference3}</td>
+              <td>{bcard.specialization3type}</td>
             </tr>
           </tbody>
         </table>

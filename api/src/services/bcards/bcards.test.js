@@ -19,42 +19,34 @@ describe('bcards', () => {
     expect(result).toEqual(scenario.bcard.one)
   })
 
-  scenario('creates a bcard', async (scenario) => {
+  scenario('creates a bcard', async () => {
     const result = await createBcard({
       input: {
+        selfie: 'String',
         netlify_id: 'String',
         name: 'String',
-        profession_id: scenario.bcard.two.profession_id,
-        specialization1type: scenario.bcard.two.specialization1type,
-        specialization2type: scenario.bcard.two.specialization2type,
-        specialization3type: scenario.bcard.two.specialization3type,
+        profession: 'String',
+        specialization1: 'String',
+        specialization1exp: 5789536,
       },
     })
 
+    expect(result.selfie).toEqual('String')
     expect(result.netlify_id).toEqual('String')
     expect(result.name).toEqual('String')
-    expect(result.profession_id).toEqual(scenario.bcard.two.profession_id)
-    expect(result.specialization1type).toEqual(
-      scenario.bcard.two.specialization1type
-    )
-
-    expect(result.specialization2type).toEqual(
-      scenario.bcard.two.specialization2type
-    )
-
-    expect(result.specialization3type).toEqual(
-      scenario.bcard.two.specialization3type
-    )
+    expect(result.profession).toEqual('String')
+    expect(result.specialization1).toEqual('String')
+    expect(result.specialization1exp).toEqual(5789536)
   })
 
   scenario('updates a bcard', async (scenario) => {
     const original = await bcard({ id: scenario.bcard.one.id })
     const result = await updateBcard({
       id: original.id,
-      input: { netlify_id: 'String2' },
+      input: { selfie: 'String2' },
     })
 
-    expect(result.netlify_id).toEqual('String2')
+    expect(result.selfie).toEqual('String2')
   })
 
   scenario('deletes a bcard', async (scenario) => {

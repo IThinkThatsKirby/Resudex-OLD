@@ -28,7 +28,7 @@ export default async () => {
       // Change to match your data model and seeding needs
       //
       data.map(async (data) => {
-        const record = await db.userExample.create({ data })
+        const record = await db.specialization.create({ data })
         console.log(record)
       })
     )

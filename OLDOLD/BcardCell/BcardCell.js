@@ -4,22 +4,14 @@ export const QUERY = gql`
   query FindBcardById($id: Int!) {
     bcard: bcard(id: $id) {
       id
-      selfie
       netlify_id
-      name
       cell_number
       email
-      was_updated
-      profession
-      specialization1
-      specialization1exp
-      spreference1
-      specialization2
-      specialization2exp
-      spreference2
-      specialization3
-      specialization3exp
-      spreference3
+      name
+      profession_id
+      specialization1type
+      specialization2type
+      specialization3type
     }
   }
 `

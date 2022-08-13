@@ -75,43 +75,27 @@ const BcardsList = ({ bcards }) => {
   }
 
   return (
-    <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
+    <div className="article responsive">
+      <table className="border no-space center-align">
         <thead>
           <tr>
             <th>Id</th>
 
-            <th>Selfie</th>
-
             <th>Netlify id</th>
-
-            <th>Name</th>
 
             <th>Cell number</th>
 
             <th>Email</th>
 
-            <th>Was updated</th>
+            <th>Name</th>
 
-            <th>Profession</th>
+            <th>Profession id</th>
 
-            <th>Specialization1</th>
+            <th>Specialization1type</th>
 
-            <th>Specialization1exp</th>
+            <th>Specialization2type</th>
 
-            <th>Spreference1</th>
-
-            <th>Specialization2</th>
-
-            <th>Specialization2exp</th>
-
-            <th>Spreference2</th>
-
-            <th>Specialization3</th>
-
-            <th>Specialization3exp</th>
-
-            <th>Spreference3</th>
+            <th>Specialization3type</th>
 
             <th>&nbsp;</th>
           </tr>
@@ -122,44 +106,28 @@ const BcardsList = ({ bcards }) => {
             <tr key={bcard.id}>
               <td>{truncate(bcard.id)}</td>
 
-              <td>{truncate(bcard.selfie)}</td>
-
               <td>{truncate(bcard.netlify_id)}</td>
-
-              <td>{truncate(bcard.name)}</td>
 
               <td>{truncate(bcard.cell_number)}</td>
 
               <td>{truncate(bcard.email)}</td>
 
-              <td>{checkboxInputTag(bcard.was_updated)}</td>
+              <td>{truncate(bcard.name)}</td>
 
-              <td>{truncate(bcard.profession)}</td>
+              <td>{truncate(bcard.profession_id)}</td>
 
-              <td>{truncate(bcard.specialization1)}</td>
+              <td>{truncate(bcard.specialization1type)}</td>
 
-              <td>{truncate(bcard.specialization1exp)}</td>
+              <td>{truncate(bcard.specialization2type)}</td>
 
-              <td>{truncate(bcard.spreference1)}</td>
-
-              <td>{truncate(bcard.specialization2)}</td>
-
-              <td>{truncate(bcard.specialization2exp)}</td>
-
-              <td>{truncate(bcard.spreference2)}</td>
-
-              <td>{truncate(bcard.specialization3)}</td>
-
-              <td>{truncate(bcard.specialization3exp)}</td>
-
-              <td>{truncate(bcard.spreference3)}</td>
+              <td>{truncate(bcard.specialization3type)}</td>
 
               <td>
                 <nav className="rw-table-actions">
                   <Link
                     to={routes.bcard({ id: bcard.id })}
                     title={'Show bcard ' + bcard.id + ' detail'}
-                    className="rw-button rw-button-small"
+                    className="border"
                   >
                     Show
                   </Link>
@@ -167,7 +135,7 @@ const BcardsList = ({ bcards }) => {
                   <Link
                     to={routes.editBcard({ id: bcard.id })}
                     title={'Edit bcard ' + bcard.id}
-                    className="rw-button rw-button-small rw-button-blue"
+                    className=""
                   >
                     Edit
                   </Link>
@@ -175,7 +143,7 @@ const BcardsList = ({ bcards }) => {
                   <button
                     type="button"
                     title={'Delete bcard ' + bcard.id}
-                    className="rw-button rw-button-small rw-button-red"
+                    className="border"
                     onClick={() => onDeleteClick(bcard.id)}
                   >
                     Delete

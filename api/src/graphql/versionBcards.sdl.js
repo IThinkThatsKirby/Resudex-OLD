@@ -1,5 +1,5 @@
 export const schema = gql`
-  type Bcard {
+  type VersionBcard {
     id: Int!
     selfie: String!
     netlify_id: String!
@@ -7,6 +7,7 @@ export const schema = gql`
     cell_number: String
     email: String
     was_updated: Boolean
+    was_deleted: Boolean
     profession: String!
     specialization1: String!
     specialization1exp: Int!
@@ -17,21 +18,21 @@ export const schema = gql`
     specialization3: String
     specialization3exp: Int
     spreference3: String
-    UserResudex: [UserResudex]!
   }
 
   type Query {
-    bcards: [Bcard!]! @requireAuth
-    bcard(id: Int!): Bcard @requireAuth
+    versionBcards: [VersionBcard!]! @requireAuth
+    versionBcard(id: Int!): VersionBcard @requireAuth
   }
 
-  input CreateBcardInput {
+  input CreateVersionBcardInput {
     selfie: String!
     netlify_id: String!
     name: String!
     cell_number: String
     email: String
     was_updated: Boolean
+    was_deleted: Boolean
     profession: String!
     specialization1: String!
     specialization1exp: Int!
@@ -44,13 +45,14 @@ export const schema = gql`
     spreference3: String
   }
 
-  input UpdateBcardInput {
+  input UpdateVersionBcardInput {
     selfie: String
     netlify_id: String
     name: String
     cell_number: String
     email: String
     was_updated: Boolean
+    was_deleted: Boolean
     profession: String
     specialization1: String
     specialization1exp: Int
@@ -64,8 +66,12 @@ export const schema = gql`
   }
 
   type Mutation {
-    createBcard(input: CreateBcardInput!): Bcard! @requireAuth
-    updateBcard(id: Int!, input: UpdateBcardInput!): Bcard! @requireAuth
-    deleteBcard(id: Int!): Bcard! @requireAuth
+    createVersionBcard(input: CreateVersionBcardInput!): VersionBcard!
+      @requireAuth
+    updateVersionBcard(
+      id: Int!
+      input: UpdateVersionBcardInput!
+    ): VersionBcard! @requireAuth
+    deleteVersionBcard(id: Int!): VersionBcard! @requireAuth
   }
 `

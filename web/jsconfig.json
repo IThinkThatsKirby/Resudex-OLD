@@ -33,5 +33,5 @@
     "../.redwood/types/includes/web-*",
     "../types",
     "./types"
-  ]
+,   ]
 }

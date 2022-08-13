@@ -1,5 +1,5 @@
 export const standard = defineScenario({
-  bcard: {
+  versionBcard: {
     one: {
       data: {
         selfie: 'String',
@@ -7,7 +7,7 @@ export const standard = defineScenario({
         name: 'String',
         profession: 'String',
         specialization1: 'String',
-        specialization1exp: 9890036,
+        specialization1exp: 3168668,
       },
     },
 
@@ -18,7 +18,7 @@ export const standard = defineScenario({
         name: 'String',
         profession: 'String',
         specialization1: 'String',
-        specialization1exp: 5319216,
+        specialization1exp: 3557452,
       },
     },
   },
