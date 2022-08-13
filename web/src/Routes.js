@@ -16,6 +16,7 @@ const Routes = () => {
     <Router>
       <Private unauthenticated="newSession">
         <Set wrap={GlobalLayout}>
+          <Route path="/user/resudex" page={ResudexPage} name="resudex" />
           <Route path="/homepage" page={HomePage} name="homePage" />
           <Route path="/bcards/new" page={BcardNewBcardPage} name="newBcard" />
           <Route path="/bcards/{id:Int}/edit" page={BcardEditBcardPage} name="editBcard" />

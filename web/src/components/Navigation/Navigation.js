@@ -18,8 +18,9 @@ const Navigation = () => {
             <button className="secondary-container circle button">
               <i>menu</i>
               <li className="dropdown no-wrap secondary round">
-                <a href="/bcards/new">NEW Resumes</a>
-                <a href="/bcards">Your Resudex</a>
+                <a href="/bcards/new">Create a new Resume</a>
+                <a href="/bcards">Browse New Resumes</a>
+                <a href="user/resudex">Your Resudex</a>
               </li>
             </button>
             <h5 className="max center-align">🗂️ | Resudex</h5>
