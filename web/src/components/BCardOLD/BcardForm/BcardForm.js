@@ -14,6 +14,7 @@ const BcardForm = (props) => {
     props.onSave(data, props?.bcard?.id)
   }
   const cUser = currentUser()
+  console.log(props)
   console.log(cUser.id, cUser.user_metadata.full_name)
   return (
     <div>
@@ -46,7 +47,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="name"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Name
@@ -66,7 +67,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="cell_number"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Cell number
@@ -85,7 +86,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="email"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Email
@@ -103,7 +104,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="profession_id"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Profession id
@@ -122,7 +123,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="specialization1type"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Specialization1type
@@ -141,7 +142,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="specialization2type"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Specialization2type
@@ -160,7 +161,7 @@ const BcardForm = (props) => {
         <div className="field label border round">
           <Label
             name="specialization3type"
-            className="rw-label"
+            className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
           >
             Specialization3type

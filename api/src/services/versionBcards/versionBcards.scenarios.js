@@ -1,6 +1,25 @@
 export const standard = defineScenario({
   versionBcard: {
-    one: { data: { bcard_id_old: 3478251, netlify_id: 'String' } },
-    two: { data: { bcard_id_old: 5459813, netlify_id: 'String' } },
+    one: {
+      data: {
+        selfie: 'String',
+        netlify_id: 'String',
+        name: 'String',
+        profession: 'String',
+        specialization1: 'String',
+        specialization1exp: 3168668,
+      },
+    },
+
+    two: {
+      data: {
+        selfie: 'String',
+        netlify_id: 'String',
+        name: 'String',
+        profession: 'String',
+        specialization1: 'String',
+        specialization1exp: 3557452,
+      },
+    },
   },
 })

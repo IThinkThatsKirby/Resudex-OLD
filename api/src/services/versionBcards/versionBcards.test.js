@@ -27,21 +27,32 @@ describe('versionBcards', () => {
 
   scenario('creates a versionBcard', async () => {
     const result = await createVersionBcard({
-      input: { bcard_id_old: 1038322, netlify_id: 'String' },
+      input: {
+        selfie: 'String',
+        netlify_id: 'String',
+        name: 'String',
+        profession: 'String',
+        specialization1: 'String',
+        specialization1exp: 4324572,
+      },
     })
 
-    expect(result.bcard_id_old).toEqual(1038322)
+    expect(result.selfie).toEqual('String')
     expect(result.netlify_id).toEqual('String')
+    expect(result.name).toEqual('String')
+    expect(result.profession).toEqual('String')
+    expect(result.specialization1).toEqual('String')
+    expect(result.specialization1exp).toEqual(4324572)
   })
 
   scenario('updates a versionBcard', async (scenario) => {
     const original = await versionBcard({ id: scenario.versionBcard.one.id })
     const result = await updateVersionBcard({
       id: original.id,
-      input: { bcard_id_old: 5587929 },
+      input: { selfie: 'String2' },
     })
 
-    expect(result.bcard_id_old).toEqual(5587929)
+    expect(result.selfie).toEqual('String2')
   })
 
   scenario('deletes a versionBcard', async (scenario) => {

@@ -1,20 +1,23 @@
 export const schema = gql`
   type VersionBcard {
     id: Int!
-    bcard_id_old: Int!
+    selfie: String!
     netlify_id: String!
+    name: String!
     cell_number: String
     email: String
-    name: String
     was_updated: Boolean
     was_deleted: Boolean
-    profession_id: Int
-    specialization1type: String
-    specialization1exp: Int
-    specialization2type: String
+    profession: String!
+    specialization1: String!
+    specialization1exp: Int!
+    spreference1: String
+    specialization2: String
     specialization2exp: Int
-    specialization3type: String
+    spreference2: String
+    specialization3: String
     specialization3exp: Int
+    spreference3: String
   }
 
   type Query {
@@ -23,37 +26,43 @@ export const schema = gql`
   }
 
   input CreateVersionBcardInput {
-    bcard_id_old: Int!
+    selfie: String!
     netlify_id: String!
+    name: String!
     cell_number: String
     email: String
-    name: String
     was_updated: Boolean
     was_deleted: Boolean
-    profession_id: Int
-    specialization1type: String
-    specialization1exp: Int
-    specialization2type: String
+    profession: String!
+    specialization1: String!
+    specialization1exp: Int!
+    spreference1: String
+    specialization2: String
     specialization2exp: Int
-    specialization3type: String
+    spreference2: String
+    specialization3: String
     specialization3exp: Int
+    spreference3: String
   }
 
   input UpdateVersionBcardInput {
-    bcard_id_old: Int
+    selfie: String
     netlify_id: String
+    name: String
     cell_number: String
     email: String
-    name: String
     was_updated: Boolean
     was_deleted: Boolean
-    profession_id: Int
-    specialization1type: String
+    profession: String
+    specialization1: String
     specialization1exp: Int
-    specialization2type: String
+    spreference1: String
+    specialization2: String
     specialization2exp: Int
-    specialization3type: String
+    spreference2: String
+    specialization3: String
     specialization3exp: Int
+    spreference3: String
   }
 
   type Mutation {
