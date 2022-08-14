@@ -13,7 +13,6 @@ import Routes from 'src/Routes'
 // import './index.css'
 
 isBrowser && netlifyIdentity.init()
-console.log(netlifyIdentity.currentUser().id)
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">

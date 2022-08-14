@@ -33,7 +33,7 @@ model Bcard {
 // User logs. currently used for selfie generation across buisnesscards. SELFIE ID MAX VALUE OF 649 TELL FRONT END
 model User {
   id         Int     @id @default(autoincrement())
-  netlify_id String?
+  netlify_id String? @unique
   selfie_id  Int?
 }
 

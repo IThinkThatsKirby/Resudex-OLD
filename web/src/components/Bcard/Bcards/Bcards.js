@@ -1,5 +1,4 @@
 import humanize from 'humanize-string'
-import { currentUser } from 'netlify-identity-widget'
 
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
@@ -54,7 +53,7 @@ const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
-const Bcards = ({ bcards }, { userBcards }) => {
+const BcardsList = ({ bcards }, { userBcards }) => {
   // const cUserId = currentUser().id
   const [deleteBcard] = useMutation(DELETE_BCARD_MUTATION, {
     onCompleted: () => {
@@ -76,82 +75,53 @@ const Bcards = ({ bcards }, { userBcards }) => {
     }
   }
 
-  if ({ bcards }) {
-    return (
-      <div>
+  return (
+    <article className="red2">
+      <div className="grid space">
         {bcards.map((bcard) => (
-          <div key={bcard.id}>
-            <a className="loader">{bcard.name}</a>
+          <div className="s6 large-elevate" key={bcard.id}>
+            <div className="grid">
+              <div className="s6">
+                <img
+                  className="large"
+                  alt="business card"
+                  src="https://www.beercss.com/beer-and-woman.jpg"
+                />
+              </div>
+              <div className="s6">
+                <div className="small-padding">
+                  <h4 className="center-align bold">{bcard.name}</h4>
+                  <h6 className="center-align">{bcard.profession}</h6>
+                  <div className="grid">
+                    <div className="s6 large-elevate small-padding">
+                      <ul>
+                        <div className="bold">Skills</div>
+                        <p>
+                          {bcard.specialization1}
+                          {bcard.specialization1exp}
+                        </p>
+                        <p>
+                          {bcard.specialization2}
+                          {bcard.specialization1exp}
+                        </p>
+                        <p>
+                          {bcard.specialization3}
+                          {bcard.specialization1exp}
+                        </p>
+                      </ul>
+                    </div>
+                  </div>
+                  <nav>
+                    <button className="border round">Button</button>
+                  </nav>
+                </div>
+              </div>
+            </div>
           </div>
-
-          /* <nav className="s2">
-              <Link
-                to={routes.bcard({ id: bcard.id })}
-                title={'Show bcard ' + bcard.id + ' detail'}
-                className="border"
-              >
-                Show
-              </Link>
-
-              <Link
-                to={routes.editBcard({ id: bcard.id })}
-                title={'Edit bcard ' + bcard.id}
-                className=""
-              >
-                Edit
-              </Link>
-
-              <button
-                type="button"
-                title={'Delete bcard ' + bcard.id}
-                className="border"
-                onClick={() => onDeleteClick(bcard.id)}
-              >
-                Delete
-              </button>
-            </nav> */
         ))}
       </div>
-    )
-  }
-  if (userBcards) {
-    console.log(userBcards)
-    return (
-      <div>
-        {userBcards.map((userbcard) => (
-          <div key={userbcard.id}>
-            <a className="loader">{userbcard.name}</a>
-          </div>
-
-          /* <nav className="s2">
-              <Link
-                to={routes.bcard({ id: bcard.id })}
-                title={'Show bcard ' + bcard.id + ' detail'}
-                className="border"
-              >
-                Show
-              </Link>
-
-              <Link
-                to={routes.editBcard({ id: bcard.id })}
-                title={'Edit bcard ' + bcard.id}
-                className=""
-              >
-                Edit
-              </Link>
-
-              <button
-                type="button"
-                title={'Delete bcard ' + bcard.id}
-                className="border"
-                onClick={() => onDeleteClick(bcard.id)}
-              >
-                Delete
-              </button>
-            </nav> */
-        ))}
-      </div>
-    )
-  }
+    </article>
+  )
 }
-export default Bcards
+
+export default BcardsList

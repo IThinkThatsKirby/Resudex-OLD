@@ -4,7 +4,7 @@ const GlobalLayout = ({ children }) => {
   return (
     <>
       <Navigation />
-      <div className="small-padding">
+      <div className="small-padding red1 responsive">
         <main>{children}</main>
         <Footer />
       </div>

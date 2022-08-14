@@ -1,56 +1,35 @@
 import { currentUser } from 'netlify-identity-widget'
 
-import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
 import SignoutBtn from 'src/components/SignoutBtn/SignoutBtn'
 
-import SigninBtn from '../SigninBtn/SigninBtn'
-
 const Navigation = () => {
-  const { isAuthenticated } = useAuth()
   const cUser = currentUser()
   return (
-    <nav>
-      {isAuthenticated ? (
-        <header className="primary responsive small-padding">
-          <nav>
-            <button className="secondary-container circle button">
-              <i>menu</i>
-              <li className="dropdown no-wrap secondary round">
-                <a href="/bcards/new">Create a new Resume</a>
-                <a href="/bcards">Browse New Resumes</a>
-              </li>
-            </button>
-            <h5 className="max center-align">🗂️ | Resudex</h5>
-            <p>Howdy {cUser.user_metadata.full_name}!</p>{' '}
-            <Link
-              to={routes.userResudexes({ netlify_id: cUser.id })}
-              className="button pink"
-            >
-              Your Resudex
-            </Link>
-            <SignoutBtn />
-          </nav>
-        </header>
-      ) : (
-        <>
-          <header className="primary responsive small-padding">
-            <nav>
-              <button className="secondary-container circle button">
-                <i>menu</i>
-                <li className="dropdown no-wrap secondary round">
-                  <a href="/panning">NEW Resumes</a>
-                  <a href="/sifter">Your Resudex</a>
-                </li>
-              </button>
-              <h5 className="max center-align">🗂️ | Resudex</h5>
-              <SigninBtn />
-            </nav>
-          </header>
-        </>
-      )}
-    </nav>
+    <header className="primary row responsive no-padding">
+      <nav className="top-shadow responsive">
+        <Link
+          to={routes.newBcard()}
+          className="button green"
+          href="/bcards/new"
+        >
+          Create a new Resume
+        </Link>
+        <Link to={routes.bcards()} className="button orange" href="/bcards">
+          Browse New Resumes
+        </Link>
+        <h4 className="center-align max">🗂️ | Resudex</h4>
+        <h6>Howdy {cUser.user_metadata.full_name}!</h6>
+        <Link
+          to={routes.userResudexes({ netlify_id: cUser.id })}
+          className="button pink"
+        >
+          Your Resudex
+        </Link>
+        <SignoutBtn />
+      </nav>
+    </header>
   )
 }
 

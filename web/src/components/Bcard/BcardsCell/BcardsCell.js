@@ -6,26 +6,25 @@ import Bcards from 'src/components/Bcard/Bcards'
 // const cUser = currentUser().id
 
 export const QUERY = gql`
-  query userBcards($netlify_id: String) {
-    userBcards(netlify_id: $netlify_id) {
-      specialization1
-      specialization1exp
-      specialization2
-      specialization2exp
-      specialization3
-      specialization3exp
-      spreference1
-      spreference2
-      spreference3
-      profession
-      selfie
-      name
-      email
-      cell_number
-      id
-    }
+  query FindBcards {
     bcards {
       id
+      selfie
+      netlify_id
+      name
+      cell_number
+      email
+      was_updated
+      profession
+      specialization1
+      specialization1exp
+      spreference1
+      specialization2
+      specialization2exp
+      spreference2
+      specialization3
+      specialization3exp
+      spreference3
     }
   }
 `
@@ -65,6 +64,6 @@ export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error.message}</div>
 )
 
-export const Success = ({ bcards, userBcards }) => {
-  return <Bcards bcards={bcards} userBcards={userBcards} />
+export const Success = ({ bcards }) => {
+  return <Bcards bcards={bcards} />
 }

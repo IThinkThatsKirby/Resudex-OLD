@@ -8411,6 +8411,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"beercss@npm:^2.2.9":
+  version: 2.2.9
+  resolution: "beercss@npm:2.2.9"
+  dependencies:
+    material-dynamic-colors: ^0.0.10
+    sass: ^1.49.9
+    uuid: ^8.3.2
+    vue: ^3.2.31
+  checksum: 812b6ea0c2a450823277aa14bdf888bc30209505f5a5204985c0ceabd07c64fb81d3910999c201b4643fc69a9b5ce3a5cb804de115f912dd98b6694db9c226de
+  languageName: node
+  linkType: hard
+
 "better-opn@npm:^2.1.1":
   version: 2.1.1
   resolution: "better-opn@npm:2.1.1"
@@ -20993,7 +21005,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@redwoodjs/core": ^2.2.0
-    beercss: ^2.1.3
+    beercss: ^2.2.9
     material-dynamic-colors: ^0.0.10
     yarn: ^1.22.19
   languageName: unknown
