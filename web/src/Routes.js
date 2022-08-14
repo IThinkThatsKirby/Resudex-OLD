@@ -30,7 +30,7 @@ const Routes = () => {
       </Private>
       <Route path="/newsession" page={NewSessionPage} name="newSession" />
       <Route path="/" page={NewSessionPage} name="newSession" />
-      <Route notfound page={NotFoundPage} />
+      <Route notfound page={NewSessionPage} />
     </Router>
   )
 }

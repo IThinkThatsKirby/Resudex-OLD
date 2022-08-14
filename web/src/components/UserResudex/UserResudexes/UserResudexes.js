@@ -67,69 +67,78 @@ const UserResudexesList = ({ userResudexes }) => {
     refetchQueries: [{ query: QUERY }],
     awaitRefetchQueries: true,
   })
-
+  //saved for later
+  // //              <button
+  //                 type="button"
+  //                 title={'Delete userResudex ' + userResudex.id}
+  //                 className="rw-button rw-button-small rw-button-red"
+  //                 onClick={() => onDeleteClick(userResudex.id)}
+  //               >
+  //                 Delete
+  //               </button>
   const onDeleteClick = (id) => {
     if (confirm('Are you sure you want to delete userResudex ' + id + '?')) {
       deleteUserResudex({ variables: { id } })
     }
   }
-
+  console.log(userResudexes[0].bcard)
   return (
-    <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
-        <thead>
-          <tr>
-            <th>Id</th>
-
-            <th>Netlify id</th>
-
-            <th>Bcard id</th>
-
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {userResudexes.map((userResudex) => (
-            <tr key={userResudex.id}>
-              <td>{truncate(userResudex.id)}</td>
-
-              <td>{truncate(userResudex.netlify_id)}</td>
-
-              <td>{truncate(userResudex.bcard_id)}</td>
-
-              <td>
-                <nav className="rw-table-actions">
-                  <Link
-                    to={routes.userResudex({ id: userResudex.id })}
-                    title={'Show userResudex ' + userResudex.id + ' detail'}
-                    className="rw-button rw-button-small"
-                  >
-                    Show
-                  </Link>
-
-                  <Link
-                    to={routes.editUserResudex({ id: userResudex.id })}
-                    title={'Edit userResudex ' + userResudex.id}
-                    className="rw-button rw-button-small rw-button-blue"
-                  >
-                    Edit
-                  </Link>
-
-                  <button
-                    type="button"
-                    title={'Delete userResudex ' + userResudex.id}
-                    className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(userResudex.id)}
-                  >
-                    Delete
-                  </button>
-                </nav>
-              </td>
-            </tr>
+    <div>
+      <article className="red2">
+        <div className="grid max space">
+          {userResudexes.map((userResudexe) => (
+            <div className="s5 red3 large-elevate" key={userResudexe.bcard.id}>
+              <div className="grid">
+                <div className="s2">
+                  <img
+                    className=""
+                    alt="business card"
+                    src={userResudexe.bcard.selfie}
+                  />
+                </div>
+                <div className="s9">
+                  <div className="small-padding">
+                    <h4 className="center-align bold">
+                      {userResudexe.bcard.name}
+                    </h4>
+                    <h6 className="center-align">
+                      {userResudexe.bcard.profession}
+                    </h6>
+                    <div className="grid">
+                      <div className="s6 large-elevate small-padding">
+                        <ul>
+                          <div className="bold">Skills:</div>
+                          <p>
+                            {userResudexe.bcard.specialization1} -{' '}
+                            {userResudexe.bcard.specialization1exp}yr
+                          </p>
+                          <p>
+                            {userResudexe.bcard.specialization2} -{' '}
+                            {userResudexe.bcard.specialization1exp}yr
+                          </p>
+                          <p>
+                            {userResudexe.bcard.specialization3} -{' '}
+                            {userResudexe.bcard.specialization1exp}yr
+                          </p>
+                        </ul>
+                      </div>
+                      <div className="s3 small-padding">
+                        <ul>
+                          <div className="bold">References:</div>
+                          <p>{userResudexe.bcard.spreference1}</p>
+                          <p>{userResudexe.bcard.spreference2}</p>
+                          <p>{userResudexe.bcard.spreference3}</p>
+                        </ul>
+                      </div>
+                    </div>
+                    <nav></nav>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
-        </tbody>
-      </table>
+        </div>
+      </article>
     </div>
   )
 }

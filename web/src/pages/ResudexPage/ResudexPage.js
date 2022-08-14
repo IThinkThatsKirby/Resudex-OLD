@@ -5,8 +5,6 @@ import { MetaTags } from '@redwoodjs/web'
 
 import BcardsCell from 'src/components/Bcard/BcardsCell'
 
-const cUser = currentUser()
-console.log(cUser.id, cUser.user_metadata.full_name)
 const ResudexPage = () => {
   return (
     // <>

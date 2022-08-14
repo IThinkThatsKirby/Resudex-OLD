@@ -1,4 +1,5 @@
 import humanize from 'humanize-string'
+import { currentUser } from 'netlify-identity-widget'
 
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
@@ -6,7 +7,6 @@ import { toast } from '@redwoodjs/web/toast'
 
 import QUERY from 'src/components/Bcard/BcardsCell'
 import FavBtn from 'src/components/FavBtn/FavBtn'
-
 const DELETE_BCARD_MUTATION = gql`
   mutation DeleteBcardMutation($id: Int!) {
     deleteBcard(id: $id) {
@@ -14,6 +14,7 @@ const DELETE_BCARD_MUTATION = gql`
     }
   }
 `
+const cUserID = currentUser().id
 
 const MAX_STRING_LENGTH = 150
 
@@ -54,8 +55,7 @@ const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
-const BcardsList = ({ bcards }, { userBcards }) => {
-  // const cUserId = currentUser().id
+const BcardsList = ({ bcards }) => {
   const [deleteBcard] = useMutation(DELETE_BCARD_MUTATION, {
     onCompleted: () => {
       toast.success('Bcard deleted')
@@ -82,7 +82,7 @@ const BcardsList = ({ bcards }, { userBcards }) => {
         {bcards.map((bcard) => (
           <div className="s5 red3 large-elevate" key={bcard.id}>
             <div className="grid">
-              <div className="s1">
+              <div className="s2">
                 <img className="" alt="business card" src={bcard.selfie} />
               </div>
               <div className="s9">
@@ -104,7 +104,7 @@ const BcardsList = ({ bcards }, { userBcards }) => {
                         </p>
                       </ul>
                     </div>
-                    <div className="s6 small-padding">
+                    <div className="s3 small-padding">
                       <ul>
                         <div className="bold">References:</div>
                         <p>{bcard.spreference1}</p>
@@ -114,7 +114,7 @@ const BcardsList = ({ bcards }, { userBcards }) => {
                     </div>
                   </div>
                   <nav>
-                    <FavBtn />
+                    <FavBtn bcard_id={bcard.id} netlify_id={cUserID} />
                   </nav>
                 </div>
               </div>
