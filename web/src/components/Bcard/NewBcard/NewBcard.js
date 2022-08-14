@@ -28,12 +28,12 @@ const NewBcard = () => {
   }
 
   return (
-    <div className="rw-segment">
-      <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Bcard</h2>
+    <div className=" large-elevation">
+      <header className="round fill small-margin">
+        <h6 className="center-align">New business card form</h6>
       </header>
 
-      <div className="rw-segment-main">
+      <div className="padding border round">
         <BcardForm onSave={onSave} loading={loading} error={error} />
       </div>
     </div>

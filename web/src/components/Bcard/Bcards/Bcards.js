@@ -5,6 +5,7 @@ import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import QUERY from 'src/components/Bcard/BcardsCell'
+import FavBtn from 'src/components/FavBtn/FavBtn'
 
 const DELETE_BCARD_MUTATION = gql`
   mutation DeleteBcardMutation($id: Int!) {
@@ -77,42 +78,43 @@ const BcardsList = ({ bcards }, { userBcards }) => {
 
   return (
     <article className="red2">
-      <div className="grid space">
+      <div className="grid max space">
         {bcards.map((bcard) => (
-          <div className="s6 large-elevate" key={bcard.id}>
+          <div className="s5 red3 large-elevate" key={bcard.id}>
             <div className="grid">
-              <div className="s6">
-                <img
-                  className="large"
-                  alt="business card"
-                  src="https://www.beercss.com/beer-and-woman.jpg"
-                />
+              <div className="s1">
+                <img className="" alt="business card" src={bcard.selfie} />
               </div>
-              <div className="s6">
+              <div className="s9">
                 <div className="small-padding">
                   <h4 className="center-align bold">{bcard.name}</h4>
                   <h6 className="center-align">{bcard.profession}</h6>
                   <div className="grid">
                     <div className="s6 large-elevate small-padding">
                       <ul>
-                        <div className="bold">Skills</div>
+                        <div className="bold">Skills:</div>
                         <p>
-                          {bcard.specialization1}
-                          {bcard.specialization1exp}
+                          {bcard.specialization1} - {bcard.specialization1exp}yr
                         </p>
                         <p>
-                          {bcard.specialization2}
-                          {bcard.specialization1exp}
+                          {bcard.specialization2} - {bcard.specialization1exp}yr
                         </p>
                         <p>
-                          {bcard.specialization3}
-                          {bcard.specialization1exp}
+                          {bcard.specialization3} - {bcard.specialization1exp}yr
                         </p>
+                      </ul>
+                    </div>
+                    <div className="s6 small-padding">
+                      <ul>
+                        <div className="bold">References:</div>
+                        <p>{bcard.spreference1}</p>
+                        <p>{bcard.spreference2}</p>
+                        <p>{bcard.spreference3}</p>
                       </ul>
                     </div>
                   </div>
                   <nav>
-                    <button className="border round">Button</button>
+                    <FavBtn />
                   </nav>
                 </div>
               </div>
