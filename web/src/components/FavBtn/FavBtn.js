@@ -1,5 +1,5 @@
 const FavBtn = (data) => {
-  return <button />
+  return <button className="pink icon round" />
 }
 
 export default FavBtn

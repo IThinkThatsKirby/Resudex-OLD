@@ -5,9 +5,9 @@ import {
   FormError,
   FieldError,
   Label,
-  TextField,
-  CheckboxField,
   NumberField,
+  CheckboxField,
+  TextField,
   Submit,
 } from '@redwoodjs/forms'
 
@@ -16,8 +16,16 @@ const BcardForm = (props) => {
     props.onSave(data, props?.bcard?.id)
   }
   const cUser = currentUser()
-  console.log(props)
-  console.log(cUser.id, cUser.user_metadata.full_name)
+  // makes user profile picture api constraint compliant
+  const selfieId = cUser.id.replace(/[^0-9]/g, '').substring(6, 9) //nice
+  const selfieApiSafe = (selfieId) => {
+    if (selfieId > 649) {
+      return selfieId - 649
+    }
+    return selfieId
+  }
+  const userSelfie = selfieApiSafe(selfieId)
+  const selfie = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${userSelfie}.svg`
   return (
     <div>
       <Form onSubmit={onSubmit} error={props.error}>
@@ -27,8 +35,9 @@ const BcardForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-        <div className="field label border round">
+        <div hidden className="field label border round">
           <Label
+            hidden
             name="selfie"
             className="bold secondary-text"
             errorClassName="rw-label rw-label-error"
@@ -37,8 +46,9 @@ const BcardForm = (props) => {
           </Label>
 
           <TextField
+            hidden
             name="selfie"
-            defaultValue={props.bcard?.selfie}
+            defaultValue={selfie}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
             validation={{ required: true }}
@@ -233,7 +243,7 @@ const BcardForm = (props) => {
             Specialization2exp
           </Label>
 
-          <NumberField
+          <TextField
             name="specialization2exp"
             defaultValue={props.bcard?.specialization2exp}
             className="rw-input"
@@ -287,7 +297,7 @@ const BcardForm = (props) => {
             Specialization3exp
           </Label>
 
-          <NumberField
+          <TextField
             name="specialization3exp"
             defaultValue={props.bcard?.specialization3exp}
             className="rw-input"
