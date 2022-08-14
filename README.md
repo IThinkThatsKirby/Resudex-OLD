@@ -1,4 +1,4 @@
-# Resudex
+# Resudex -> https://resudex.netlify.app
 
 Convert yourself into a small business card and despair at how easily your life can be summed up!
 Let go of your anxieties and let the *process* take control.
@@ -18,3 +18,8 @@ It is just the worst. I thought to myself why not try to make the process as obj
 ## On the Journey
 Going into this project with only React experience I was amazed at how  fast redwoodjs gets you up and running.
 It was extremely enjoyable learning Graphql and Prisma. also testing was a thing.
+
+## ToDo
+1 Allow users to see their created cards.
+2 Stop people from favoriting cards more than once.
+3 Build the rest of the enterprise solution this small app fits into $$$$
