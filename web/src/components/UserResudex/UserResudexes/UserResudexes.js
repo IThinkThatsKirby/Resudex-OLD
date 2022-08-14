@@ -81,9 +81,10 @@ const UserResudexesList = ({ userResudexes }) => {
       deleteUserResudex({ variables: { id } })
     }
   }
-  console.log(userResudexes[0].bcard)
+  console.log(userResudexes)
   return (
-    <div>
+    <div className="center-align">
+      <p>You Resudex</p>
       <article className="red2">
         <div className="grid max space">
           {userResudexes.map((userResudexe) => (
@@ -107,7 +108,7 @@ const UserResudexesList = ({ userResudexes }) => {
                     <div className="grid">
                       <div className="s6 large-elevate small-padding">
                         <ul>
-                          <div className="bold">Skills:</div>
+                          <div className="bold underline">Skills</div>
                           <p>
                             {userResudexe.bcard.specialization1} -{' '}
                             {userResudexe.bcard.specialization1exp}yr
@@ -131,7 +132,15 @@ const UserResudexesList = ({ userResudexes }) => {
                         </ul>
                       </div>
                     </div>
-                    <nav></nav>
+                    <nav>
+                      {' '}
+                      <Link
+                        to={routes.editBcard({ id: userResudexe.bcard.id })}
+                        className="button"
+                      >
+                        Edit
+                      </Link>
+                    </nav>
                   </div>
                 </div>
               </div>

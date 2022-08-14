@@ -167,16 +167,13 @@ const Bcard = ({ bcard }) => {
       </div>
 
       <nav className="rw-button-group">
-        <Link
-          to={routes.editBcard({ id: bcard.id })}
-          className="rw-button rw-button-blue"
-        >
+        <Link to={routes.editBcard({ id: bcard.id })} className="button">
           Edit
         </Link>
 
         <button
           type="button"
-          className="rw-button rw-button-red"
+          className="button"
           onClick={() => onDeleteClick(bcard.id)}
         >
           Delete
