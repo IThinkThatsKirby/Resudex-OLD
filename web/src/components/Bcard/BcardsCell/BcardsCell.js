@@ -1,5 +1,3 @@
-import { currentUser } from 'netlify-identity-widget'
-
 import { Link, routes } from '@redwoodjs/router'
 
 import Bcards from 'src/components/Bcard/Bcards'
