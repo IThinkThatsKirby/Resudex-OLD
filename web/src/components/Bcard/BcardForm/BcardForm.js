@@ -182,7 +182,7 @@ const BcardForm = (props) => {
                     className="bold secondary-text"
                     errorClassName="rw-label rw-label-error"
                   >
-                    Expereince in Years
+                    Experience in Years
                   </Label>
                   <NumberField
                     name="specialization1exp"
@@ -225,7 +225,7 @@ const BcardForm = (props) => {
                     className="bold secondary-text"
                     errorClassName="rw-label rw-label-error"
                   >
-                    Expereince in Years
+                    Experience in Years
                   </Label>
                   <NumberField
                     name="specialization2exp"
