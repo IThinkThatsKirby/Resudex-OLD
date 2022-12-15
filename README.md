@@ -1,3 +1,4 @@
+# Remake on the way. everything here is old and wont be maintained.
 # Resudex -> https://resudex.netlify.app
 
 Convert yourself into a small business card and despair at how easily your life can be summed up!
